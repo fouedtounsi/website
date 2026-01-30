@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
+import { useLanguage } from '../context/LanguageContext';
 import axios from 'axios';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,13 +32,13 @@ export default function Contact() {
       await axios.post(`${API}/contact`, formData);
       setStatus({ 
         type: 'success', 
-        message: 'Thank you for your message. We will get back to you soon!' 
+        message: t('contact.successMessage')
       });
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
     } catch (error) {
       setStatus({ 
         type: 'error', 
-        message: 'Something went wrong. Please try again or email us directly.' 
+        message: t('contact.errorMessage')
       });
     } finally {
       setIsSubmitting(false);
@@ -46,19 +48,19 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
+      title: t('contact.email'),
       value: 'contact@huiledetunisia.com',
       href: 'mailto:contact@huiledetunisia.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: 'Phone',
+      title: t('contact.phone'),
       value: '+1 (514) 000-0000',
       href: 'tel:+15140000000'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Location',
+      title: t('contact.location'),
       value: 'Montreal, Quebec, Canada',
       href: null
     }
@@ -76,15 +78,14 @@ export default function Contact() {
             className="max-w-3xl"
           >
             <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-              Contactez-Nous
+              {t('contact.heroAccent')}
             </span>
             <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 leading-tight">
-              Get in Touch
+              {t('contact.heroTitle')}
             </h1>
             <div className="gold-line mb-6" />
             <p className="text-text-secondary text-lg leading-relaxed">
-              Interested in our products? Have questions about wholesale or distribution? 
-              We'd love to hear from you. Fill out the form below or reach out directly.
+              {t('contact.heroDesc')}
             </p>
           </motion.div>
         </div>
@@ -96,12 +97,12 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
-                key={info.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                data-testid={`contact-info-${info.title.toLowerCase()}`}
+                data-testid={`contact-info-${index}`}
                 className="text-center"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 border border-brand-gold/30 text-brand-gold mb-4">
@@ -136,9 +137,9 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
             >
               <SectionHeader
-                accent="Envoyez-nous un message"
-                title="Send a Message"
-                subtitle="We typically respond within 24-48 hours."
+                accent={t('contact.formAccent')}
+                title={t('contact.formTitle')}
+                subtitle={t('contact.formSubtitle')}
               />
               
               <form onSubmit={handleSubmit} className="mt-10 space-y-6">
@@ -149,7 +150,7 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your Name *"
+                      placeholder={t('contact.nameLabel')}
                       required
                       data-testid="contact-input-name"
                       className="form-input-gold"
@@ -161,7 +162,7 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Email Address *"
+                      placeholder={t('contact.emailLabel')}
                       required
                       data-testid="contact-input-email"
                       className="form-input-gold"
@@ -176,7 +177,7 @@ export default function Contact() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Company (Optional)"
+                      placeholder={t('contact.companyLabel')}
                       data-testid="contact-input-company"
                       className="form-input-gold"
                     />
@@ -187,7 +188,7 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Subject *"
+                      placeholder={t('contact.subjectLabel')}
                       required
                       data-testid="contact-input-subject"
                       className="form-input-gold"
@@ -200,7 +201,7 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your Message *"
+                    placeholder={t('contact.messageLabel')}
                     required
                     rows={6}
                     data-testid="contact-input-message"
@@ -234,7 +235,7 @@ export default function Contact() {
                   data-testid="contact-submit-button"
                   className="btn-primary inline-flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? t('contact.sending') : t('contact.sendMessage')}
                   <Send size={16} />
                 </button>
               </form>
@@ -250,42 +251,32 @@ export default function Contact() {
             >
               <div className="bg-surface-secondary border border-white/5 p-8 md:p-12">
                 <h3 className="font-playfair text-2xl text-text-primary mb-6">
-                  Why Contact Us?
+                  {t('contact.whyContactTitle')}
                 </h3>
                 <div className="space-y-6">
                   <div className="feature-card">
-                    <h4 className="text-text-primary font-medium mb-2">Wholesale Inquiries</h4>
-                    <p className="text-text-secondary text-sm">
-                      Looking to stock our products? We offer competitive wholesale pricing for retailers and distributors.
-                    </p>
+                    <h4 className="text-text-primary font-medium mb-2">{t('contact.reason1Title')}</h4>
+                    <p className="text-text-secondary text-sm">{t('contact.reason1Desc')}</p>
                   </div>
                   <div className="feature-card">
-                    <h4 className="text-text-primary font-medium mb-2">Export & Distribution</h4>
-                    <p className="text-text-secondary text-sm">
-                      Interested in becoming a distributor in your region? Let's discuss partnership opportunities.
-                    </p>
+                    <h4 className="text-text-primary font-medium mb-2">{t('contact.reason2Title')}</h4>
+                    <p className="text-text-secondary text-sm">{t('contact.reason2Desc')}</p>
                   </div>
                   <div className="feature-card">
-                    <h4 className="text-text-primary font-medium mb-2">Custom Orders</h4>
-                    <p className="text-text-secondary text-sm">
-                      Need custom labeling or specific quantities? We can accommodate special requests.
-                    </p>
+                    <h4 className="text-text-primary font-medium mb-2">{t('contact.reason3Title')}</h4>
+                    <p className="text-text-secondary text-sm">{t('contact.reason3Desc')}</p>
                   </div>
                   <div className="feature-card">
-                    <h4 className="text-text-primary font-medium mb-2">Product Information</h4>
-                    <p className="text-text-secondary text-sm">
-                      Have questions about our olive oil or kitchenware? We're happy to provide detailed information.
-                    </p>
+                    <h4 className="text-text-primary font-medium mb-2">{t('contact.reason4Title')}</h4>
+                    <p className="text-text-secondary text-sm">{t('contact.reason4Desc')}</p>
                   </div>
                 </div>
               </div>
 
               {/* Quick Contact */}
               <div className="mt-8 p-8 bg-surface-tertiary border border-brand-gold/20">
-                <h4 className="font-playfair text-xl text-text-primary mb-4">Quick Contact</h4>
-                <p className="text-text-secondary text-sm mb-4">
-                  For urgent inquiries, reach us directly:
-                </p>
+                <h4 className="font-playfair text-xl text-text-primary mb-4">{t('contact.quickContactTitle')}</h4>
+                <p className="text-text-secondary text-sm mb-4">{t('contact.quickContactDesc')}</p>
                 <a 
                   href="mailto:contact@huiledetunisia.com"
                   className="text-brand-gold hover:text-brand-gold-dim transition-colors duration-300 flex items-center gap-2"

@@ -2,52 +2,35 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Calendar, Users, Award } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
+import { useLanguage } from '../context/LanguageContext';
 
 const LOGO_URL = "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6f2dfogv_Logo%20IJL.jpg";
 const HERO_BG = "https://images.unsplash.com/photo-1729834819935-4365b7a42d08?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHx0dW5pc2lhbiUyMG9saXZlJTIwZ3JvdmUlMjBzdW5zZXQlMjBsYW5kc2NhcGV8ZW58MHx8fHwxNzY5ODAxOTY3fDA&ixlib=rb-4.1.0&q=85";
 const PRODUCT_IMAGE = "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/ovii6g2w_Image%202026-01-14%20at%2011.04.12%20AM%20%281%29.jpeg";
 
-const stats = [
-  { icon: <Calendar className="w-6 h-6" />, value: 'Est. 2010', label: 'Years of Excellence' },
-  { icon: <MapPin className="w-6 h-6" />, value: 'Montreal', label: 'Canada' },
-  { icon: <Users className="w-6 h-6" />, value: 'Canada-wide', label: 'Delivery' },
-  { icon: <Award className="w-6 h-6" />, value: '100%', label: 'Organic Certified' }
-];
-
-const values = [
-  {
-    title: 'Quality',
-    titleFr: 'Qualité',
-    description: 'We never compromise on quality. Every product undergoes rigorous quality control.'
-  },
-  {
-    title: 'Tradition',
-    titleFr: 'Tradition',
-    description: 'We preserve ancient techniques while embracing modern standards.'
-  },
-  {
-    title: 'Sustainability',
-    titleFr: 'Durabilité',
-    description: 'Our practices respect the environment and support local communities.'
-  },
-  {
-    title: 'Authenticity',
-    titleFr: 'Authenticité',
-    description: 'What you see is what you get - pure, genuine Tunisian products.'
-  }
-];
-
 export default function About() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { icon: <Calendar className="w-6 h-6" />, value: 'Est. 2010', label: t('about.statYears') },
+    { icon: <MapPin className="w-6 h-6" />, value: 'Montreal', label: t('about.statLocation') },
+    { icon: <Users className="w-6 h-6" />, value: 'Canada-wide', label: t('about.statDelivery') },
+    { icon: <Award className="w-6 h-6" />, value: '100%', label: t('about.statOrganic') }
+  ];
+
+  const values = [
+    { title: t('about.value1Title'), titleFr: 'Qualité', description: t('about.value1Desc') },
+    { title: t('about.value2Title'), titleFr: 'Tradition', description: t('about.value2Desc') },
+    { title: t('about.value3Title'), titleFr: 'Durabilité', description: t('about.value3Desc') },
+    { title: t('about.value4Title'), titleFr: 'Authenticité', description: t('about.value4Desc') }
+  ];
+
   return (
     <div data-testid="about-page" className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 bg-surface-primary overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img
-            src={HERO_BG}
-            alt="Tunisian Olive Grove"
-            className="w-full h-full object-cover"
-          />
+          <img src={HERO_BG} alt="Tunisian Olive Grove" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-surface-primary via-surface-primary/80 to-surface-primary" />
         </div>
         
@@ -60,21 +43,17 @@ export default function About() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-                Notre Histoire
+                {t('about.heroAccent')}
               </span>
               <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 leading-tight">
-                About Us
+                {t('about.heroTitle')}
               </h1>
               <div className="gold-line mb-6" />
               <p className="text-text-secondary text-lg leading-relaxed mb-6">
-                IJL International is a family-owned company dedicated to bringing the finest 
-                Tunisian products to Canada. Based in Montreal, Quebec, we are the Canadian 
-                subsidiary importing premium olive oil directly from Tunisia's finest groves.
+                {t('about.heroDesc1')}
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Our mission is to share the authentic taste and craftsmanship of Tunisia 
-                with Canadian markets. Products available in our Montreal warehouse with 
-                delivery across Canada.
+                {t('about.heroDesc2')}
               </p>
             </motion.div>
 
@@ -86,11 +65,7 @@ export default function About() {
               className="flex justify-center"
             >
               <div className="relative">
-                <img
-                  src={LOGO_URL}
-                  alt="IJL International Logo"
-                  className="w-64 md:w-80 h-auto"
-                />
+                <img src={LOGO_URL} alt="IJL International Logo" className="w-64 md:w-80 h-auto" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-brand-gold/20 rounded-full" />
               </div>
             </motion.div>
@@ -104,12 +79,12 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}
+                data-testid={`stat-${index}`}
                 className="text-center"
               >
                 <div className="inline-flex items-center justify-center text-brand-gold mb-3">
@@ -140,11 +115,7 @@ export default function About() {
               className="relative"
             >
               <div className="overflow-hidden">
-                <img
-                  src={PRODUCT_IMAGE}
-                  alt="Our Products"
-                  className="w-full h-auto"
-                />
+                <img src={PRODUCT_IMAGE} alt="Our Products" className="w-full h-auto" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-surface-secondary border border-brand-gold/20 p-4">
                 <span className="font-cormorant italic text-brand-gold text-lg">Depuis 2010</span>
@@ -159,29 +130,16 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-                Notre Parcours
+                {t('about.journeyAccent')}
               </span>
               <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-                Our Journey
+                {t('about.journeyTitle')}
               </h2>
               <div className="gold-line mb-6" />
               <div className="space-y-4 text-text-secondary text-base leading-relaxed">
-                <p>
-                  Our story began in the sun-drenched olive groves of Tunisia, where generations 
-                  of families have cultivated olives using traditional methods. Inspired by 
-                  this rich heritage, we established IJL International in Montreal to bring 
-                  these treasures to Canadian homes.
-                </p>
-                <p>
-                  Today, we import directly from local Tunisian farmers and artisans, ensuring fair 
-                  prices and sustainable practices. Our olive oil is cold-pressed within 
-                  hours of harvest, then shipped to our Montreal warehouse for distribution across Canada.
-                </p>
-                <p>
-                  Our olive wood products are crafted by skilled artisans who transform 
-                  reclaimed wood from old olive trees into beautiful, functional pieces 
-                  that tell a story of Tunisian craftsmanship.
-                </p>
+                <p>{t('about.journeyDesc1')}</p>
+                <p>{t('about.journeyDesc2')}</p>
+                <p>{t('about.journeyDesc3')}</p>
               </div>
             </motion.div>
           </div>
@@ -192,20 +150,20 @@ export default function About() {
       <section className="py-24 md:py-32 bg-surface-secondary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="Nos Valeurs"
-            title="Our Values"
+            accent={t('about.valuesAccent')}
+            title={t('about.valuesTitle')}
             align="center"
           />
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <motion.div
-                key={value.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                data-testid={`value-${value.title.toLowerCase()}`}
+                data-testid={`value-${index}`}
                 className="feature-card"
               >
                 <h3 className="font-playfair text-xl text-text-primary mb-1">{value.title}</h3>
@@ -227,15 +185,13 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-brand-gold font-cormorant italic text-2xl mb-4 block">
-              From Tunisia to Canada
+              {t('about.tunisiaAccent')}
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              Product of Tunisia • Delivered in Canada
+              {t('about.tunisiaTitle')}
             </h2>
             <p className="text-text-secondary text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-              Tunisia has been cultivating olives for over 3,000 years. We import the finest 
-              extra virgin olive oil directly from Tunisia to our warehouse in Montreal. 
-              Orders ship across Canada with fast, reliable delivery.
+              {t('about.tunisiaDesc')}
             </p>
             <div className="inline-flex items-center gap-3 text-brand-gold">
               <MapPin size={24} />
@@ -255,18 +211,17 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              Ready to Experience Tunisia?
+              {t('about.ctaTitle')}
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">
-              Whether you're a retailer, distributor, or simply curious about our products, 
-              we'd love to hear from you.
+              {t('about.ctaSubtitle')}
             </p>
             <Link
               to="/contact"
               data-testid="about-cta-contact"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Contact Us
+              {t('about.contactUs')}
               <ArrowRight size={16} />
             </Link>
           </motion.div>
