@@ -169,13 +169,13 @@ export default function About() {
                 <p>
                   Our story began in the sun-drenched olive groves of Tunisia, where generations 
                   of families have cultivated olives using traditional methods. Inspired by 
-                  this rich heritage, we founded IJL International to bring these treasures 
-                  to the world.
+                  this rich heritage, we established IJL International in Montreal to bring 
+                  these treasures to Canadian homes.
                 </p>
                 <p>
-                  Today, we work directly with local farmers and artisans, ensuring fair 
+                  Today, we import directly from local Tunisian farmers and artisans, ensuring fair 
                   prices and sustainable practices. Our olive oil is cold-pressed within 
-                  hours of harvest, preserving its exceptional flavor and nutritional benefits.
+                  hours of harvest, then shipped to our Montreal warehouse for distribution across Canada.
                 </p>
                 <p>
                   Our olive wood products are crafted by skilled artisans who transform 
