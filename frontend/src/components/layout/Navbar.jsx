@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
+import { LanguageSwitcher } from '../shared/LanguageSwitcher';
 
 const LOGO_URL = "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6f2dfogv_Logo%20IJL.jpg";
 
@@ -9,6 +11,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +26,11 @@ export const Navbar = () => {
   }, [location]);
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/olive-oil', label: 'Olive Oil' },
-    { path: '/kitchenware', label: 'Kitchenware' },
-    { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', label: t('nav.home') },
+    { path: '/olive-oil', label: t('nav.oliveOil') },
+    { path: '/kitchenware', label: t('nav.kitchenware') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/contact', label: t('nav.contact') },
   ];
 
   return (
@@ -51,12 +54,12 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                data-testid={`nav-link-${link.label.toLowerCase().replace(' ', '-')}`}
+                data-testid={`nav-link-${link.path.replace('/', '') || 'home'}`}
                 className={`text-sm uppercase tracking-[0.2em] transition-colors duration-300 ${
                   location.pathname === link.path
                     ? 'text-brand-gold'
@@ -66,16 +69,20 @@ export const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            data-testid="mobile-menu-toggle"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white/70 hover:text-brand-gold transition-colors"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher />
+            <button
+              data-testid="mobile-menu-toggle"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-white/70 hover:text-brand-gold transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -93,7 +100,7 @@ export const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(' ', '-')}`}
+                  data-testid={`mobile-nav-link-${link.path.replace('/', '') || 'home'}`}
                   className={`text-sm uppercase tracking-[0.2em] py-2 transition-colors duration-300 ${
                     location.pathname === link.path
                       ? 'text-brand-gold'
