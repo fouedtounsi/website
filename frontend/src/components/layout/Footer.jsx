@@ -89,9 +89,9 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} IJL International. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-text-muted text-xs">Huile de Tunisia</span>
+            <span className="text-text-muted text-xs">Tunisia Olive Oil</span>
             <span className="text-brand-gold">•</span>
-            <span className="text-brand-gold text-xs font-cormorant italic">Qualité Supérieure</span>
+            <span className="text-brand-gold text-xs font-cormorant italic">Ships across Canada</span>
           </div>
         </div>
       </div>
