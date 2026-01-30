@@ -226,13 +226,20 @@ export default function OliveOil() {
                   </span>
                 </div>
                 
-                {/* Image */}
-                <div className="aspect-square overflow-hidden">
+                {/* Image - Clickable for zoom */}
+                <div 
+                  className="aspect-square overflow-hidden cursor-pointer relative"
+                  onClick={() => openLightbox(index)}
+                >
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  {/* Zoom overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={32} />
+                  </div>
                 </div>
                 
                 {/* Content */}
