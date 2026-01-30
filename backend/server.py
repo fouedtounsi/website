@@ -20,7 +20,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Create the main app without a prefix
-app = FastAPI(title="Huile de Sfax API", version="1.0.0")
+app = FastAPI(title="Huile de Tunisia API", version="1.0.0")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
@@ -65,11 +65,11 @@ class ContactMessageResponse(BaseModel):
 # API Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Huile de Sfax API - Welcome"}
+    return {"message": "Huile de Tunisia API - Welcome"}
 
 @api_router.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "Huile de Sfax API"}
+    return {"status": "healthy", "service": "Huile de Tunisia API"}
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):

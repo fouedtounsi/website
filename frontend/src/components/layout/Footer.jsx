@@ -55,17 +55,17 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-brand-gold mt-0.5 flex-shrink-0" />
                 <span className="text-text-secondary text-sm">
-                  Sfax, Tunisia
+                  Tunisia, Tunisia
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-gold flex-shrink-0" />
                 <a 
-                  href="mailto:contact@huiledesfax.com"
+                  href="mailto:contact@huiledetunisia.com"
                   data-testid="footer-email"
                   className="text-text-secondary text-sm hover:text-brand-gold transition-colors duration-300"
                 >
-                  contact@huiledesfax.com
+                  contact@huiledetunisia.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -88,7 +88,7 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} IJL International. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-text-muted text-xs">Huile de Sfax</span>
+            <span className="text-text-muted text-xs">Huile de Tunisia</span>
             <span className="text-brand-gold">•</span>
             <span className="text-brand-gold text-xs font-cormorant italic">Qualité Supérieure</span>
           </div>

@@ -9,7 +9,7 @@ const PRODUCT_IMAGE = "https://customer-assets.emergentagent.com/job_8a2d9a0f-52
 
 const stats = [
   { icon: <Calendar className="w-6 h-6" />, value: 'Est. 2010', label: 'Years of Excellence' },
-  { icon: <MapPin className="w-6 h-6" />, value: 'Sfax', label: 'Tunisia' },
+  { icon: <MapPin className="w-6 h-6" />, value: 'Tunisia', label: 'Tunisia' },
   { icon: <Users className="w-6 h-6" />, value: '50+', label: 'Countries Served' },
   { icon: <Award className="w-6 h-6" />, value: '100%', label: 'Organic Certified' }
 ];
@@ -68,7 +68,7 @@ export default function About() {
               <div className="gold-line mb-6" />
               <p className="text-text-secondary text-lg leading-relaxed mb-6">
                 IJL International is a family-owned company dedicated to bringing the finest 
-                Tunisian products to the world. Based in Sfax, the heart of Tunisia's olive 
+                Tunisian products to the world. Based in Tunisia, the heart of Tunisia's olive 
                 region, we take pride in our heritage and commitment to excellence.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
@@ -166,7 +166,7 @@ export default function About() {
               <div className="gold-line mb-6" />
               <div className="space-y-4 text-text-secondary text-base leading-relaxed">
                 <p>
-                  Our story began in the sun-drenched olive groves of Sfax, where generations 
+                  Our story began in the sun-drenched olive groves of Tunisia, where generations 
                   of families have cultivated olives using traditional methods. Inspired by 
                   this rich heritage, we founded IJL International to bring these treasures 
                   to the world.
@@ -233,12 +233,12 @@ export default function About() {
             </h2>
             <p className="text-text-secondary text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
               Tunisia has been cultivating olives for over 3,000 years. The unique climate, 
-              soil, and traditional farming methods of the Sfax region produce some of the 
+              soil, and traditional farming methods of the Tunisia region produce some of the 
               world's finest olive oil. We're proud to carry this legacy forward.
             </p>
             <div className="inline-flex items-center gap-3 text-brand-gold">
               <MapPin size={24} />
-              <span className="font-playfair text-2xl">Sfax, Tunisia</span>
+              <span className="font-playfair text-2xl">Tunisia, Tunisia</span>
             </div>
           </motion.div>
         </div>

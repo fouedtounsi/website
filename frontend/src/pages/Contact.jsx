@@ -47,8 +47,8 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      value: 'contact@huiledesfax.com',
-      href: 'mailto:contact@huiledesfax.com'
+      value: 'contact@huiledetunisia.com',
+      href: 'mailto:contact@huiledetunisia.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -287,11 +287,11 @@ export default function Contact() {
                   For urgent inquiries, reach us directly:
                 </p>
                 <a 
-                  href="mailto:contact@huiledesfax.com"
+                  href="mailto:contact@huiledetunisia.com"
                   className="text-brand-gold hover:text-brand-gold-dim transition-colors duration-300 flex items-center gap-2"
                 >
                   <Mail size={18} />
-                  contact@huiledesfax.com
+                  contact@huiledetunisia.com
                 </a>
               </div>
             </motion.div>
