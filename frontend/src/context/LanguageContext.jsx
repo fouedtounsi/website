@@ -186,7 +186,7 @@ export const translations = {
     nav: {
       home: 'Accueil',
       oliveOil: 'Huile d\'Olive',
-      kitchenware: 'Ustensiles',
+      kitchenware: 'Articles bois d\'olivier',
       about: 'À Propos',
       contact: 'Contact'
     },
