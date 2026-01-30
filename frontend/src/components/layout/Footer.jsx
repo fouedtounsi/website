@@ -17,10 +17,11 @@ export const Footer = () => {
             />
             <p className="text-text-secondary text-sm leading-relaxed max-w-md">
               Premium biological extra virgin olive oil and handcrafted olive wood kitchenware. 
-              Proudly crafted in Tunisia with centuries of tradition.
+              Premium biological extra virgin olive oil from Tunisia and handcrafted olive wood kitchenware. 
+              Imported and distributed by IJL International from Montreal, Canada.
             </p>
             <p className="text-brand-gold font-cormorant italic text-lg mt-4">
-              Product of Tunisia
+              Product of Tunisia • Distributed in Canada
             </p>
           </div>
 
@@ -55,7 +56,7 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-brand-gold mt-0.5 flex-shrink-0" />
                 <span className="text-text-secondary text-sm">
-                  Tunisia, Tunisia
+                  Montreal, Quebec, Canada
                 </span>
               </li>
               <li className="flex items-center gap-3">
