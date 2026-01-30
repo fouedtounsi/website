@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Droplet, Leaf, Award, ThermometerSnowflake } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
+import { useLanguage } from '../context/LanguageContext';
 
 const PRODUCT_IMAGES = {
   '250ml': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/rxzvc8pm_Image%202026-01-14%20at%2011.04.12%20AM%20%282%29.jpeg",
@@ -12,91 +13,93 @@ const PRODUCT_IMAGES = {
   '5l': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/s0xiozcb_Image%202026-01-14%20at%2011.04.08%20AM%20%281%29.jpeg"
 };
 
-const products = [
-  {
-    id: 'oil-250ml',
-    name: '250ml Bottle',
-    nameFr: 'Bouteille 250ml',
-    sku: 'TOO-250',
-    size: '250ml / 8.45 fl oz',
-    description: 'Perfect for personal use or as a gift',
-    image: PRODUCT_IMAGES['250ml']
-  },
-  {
-    id: 'oil-500ml',
-    name: '500ml Bottle',
-    nameFr: 'Bouteille 500ml',
-    sku: 'TOO-500',
-    size: '500ml / 16.9 fl oz',
-    description: 'Ideal size for regular cooking needs',
-    image: PRODUCT_IMAGES['500ml']
-  },
-  {
-    id: 'oil-750ml',
-    name: '750ml Bottle',
-    nameFr: 'Bouteille 750ml',
-    sku: 'TOO-750',
-    size: '750ml / 25.4 fl oz',
-    description: 'Popular choice for household cooking',
-    image: PRODUCT_IMAGES['750ml']
-  },
-  {
-    id: 'oil-1l',
-    name: '1L Bottle',
-    nameFr: 'Bouteille 1L',
-    sku: 'TOO-1000',
-    size: '1L / 33.81 fl oz',
-    description: 'Best value for everyday use',
-    image: PRODUCT_IMAGES['1l']
-  },
-  {
-    id: 'oil-3l',
-    name: '3L Jug',
-    nameFr: 'Bidon 3L',
-    sku: 'TOO-3000',
-    size: '3L / 101.44 fl oz',
-    description: 'Family size for frequent cooking',
-    image: PRODUCT_IMAGES['3l']
-  },
-  {
-    id: 'oil-5l',
-    name: '5L Tin',
-    nameFr: 'Bidon 5L',
-    sku: 'TOO-5000',
-    size: '5L / 169.07 fl oz',
-    description: 'Professional size for restaurants & bulk buyers',
-    image: PRODUCT_IMAGES['5l']
-  }
-];
-
-const features = [
-  {
-    icon: <Leaf className="w-6 h-6" />,
-    title: '100% Biological',
-    titleFr: '100% Biologique',
-    description: 'Certified organic olives grown without pesticides or synthetic fertilizers'
-  },
-  {
-    icon: <ThermometerSnowflake className="w-6 h-6" />,
-    title: 'First Cold Pressing',
-    titleFr: 'Première Pression à Froid',
-    description: 'Extracted at temperatures below 27°C to preserve nutrients and flavor'
-  },
-  {
-    icon: <Droplet className="w-6 h-6" />,
-    title: 'Extra Virgin Grade',
-    titleFr: 'Extra Vierge',
-    description: 'Acidity level below 0.8%, meeting the highest quality standards'
-  },
-  {
-    icon: <Award className="w-6 h-6" />,
-    title: 'Superior Quality',
-    titleFr: 'Qualité Supérieure',
-    description: 'Sourced from the finest olive groves in the Sfax region of Tunisia'
-  }
-];
-
 export default function OliveOil() {
+  const { t, language } = useLanguage();
+
+  const products = [
+    {
+      id: 'oil-250ml',
+      name: t('oliveOil.250mlName'),
+      nameFr: 'Bouteille 250ml',
+      sku: 'TOO-250',
+      size: '250ml / 8.45 fl oz',
+      description: t('oliveOil.250mlDesc'),
+      image: PRODUCT_IMAGES['250ml']
+    },
+    {
+      id: 'oil-500ml',
+      name: t('oliveOil.500mlName'),
+      nameFr: 'Bouteille 500ml',
+      sku: 'TOO-500',
+      size: '500ml / 16.9 fl oz',
+      description: t('oliveOil.500mlDesc'),
+      image: PRODUCT_IMAGES['500ml']
+    },
+    {
+      id: 'oil-750ml',
+      name: t('oliveOil.750mlName'),
+      nameFr: 'Bouteille 750ml',
+      sku: 'TOO-750',
+      size: '750ml / 25.4 fl oz',
+      description: t('oliveOil.750mlDesc'),
+      image: PRODUCT_IMAGES['750ml']
+    },
+    {
+      id: 'oil-1l',
+      name: t('oliveOil.1lName'),
+      nameFr: 'Bouteille 1L',
+      sku: 'TOO-1000',
+      size: '1L / 33.81 fl oz',
+      description: t('oliveOil.1lDesc'),
+      image: PRODUCT_IMAGES['1l']
+    },
+    {
+      id: 'oil-3l',
+      name: t('oliveOil.3lName'),
+      nameFr: 'Bidon 3L',
+      sku: 'TOO-3000',
+      size: '3L / 101.44 fl oz',
+      description: t('oliveOil.3lDesc'),
+      image: PRODUCT_IMAGES['3l']
+    },
+    {
+      id: 'oil-5l',
+      name: t('oliveOil.5lName'),
+      nameFr: 'Bidon 5L',
+      sku: 'TOO-5000',
+      size: '5L / 169.07 fl oz',
+      description: t('oliveOil.5lDesc'),
+      image: PRODUCT_IMAGES['5l']
+    }
+  ];
+
+  const features = [
+    {
+      icon: <Leaf className="w-6 h-6" />,
+      title: t('oliveOil.feature1Title'),
+      titleFr: '100% Biologique',
+      description: t('oliveOil.feature1Desc')
+    },
+    {
+      icon: <ThermometerSnowflake className="w-6 h-6" />,
+      title: t('oliveOil.feature2Title'),
+      titleFr: 'Première Pression à Froid',
+      description: t('oliveOil.feature2Desc')
+    },
+    {
+      icon: <Droplet className="w-6 h-6" />,
+      title: t('oliveOil.feature3Title'),
+      titleFr: 'Extra Vierge',
+      description: t('oliveOil.feature3Desc')
+    },
+    {
+      icon: <Award className="w-6 h-6" />,
+      title: t('oliveOil.feature4Title'),
+      titleFr: 'Qualité Supérieure',
+      description: t('oliveOil.feature4Desc')
+    }
+  ];
+
   return (
     <div data-testid="olive-oil-page" className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -110,16 +113,14 @@ export default function OliveOil() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-                Huile d'Olive Extra Vierge
+                {t('oliveOil.heroAccent')}
               </span>
               <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 leading-tight">
-                Extra Virgin Olive Oil
+                {t('oliveOil.heroTitle')}
               </h1>
               <div className="gold-line mb-6" />
               <p className="text-text-secondary text-lg leading-relaxed mb-8">
-                Experience the pure taste of Tunisian sunshine. Our biological extra virgin olive oil 
-                is cold-pressed from hand-picked olives, capturing the essence of the Mediterranean 
-                in every drop.
+                {t('oliveOil.heroDesc')}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link 
@@ -127,7 +128,7 @@ export default function OliveOil() {
                   data-testid="olive-oil-contact-cta"
                   className="btn-primary inline-flex items-center gap-2"
                 >
-                  Inquire Now
+                  {t('oliveOil.inquireNow')}
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -150,7 +151,7 @@ export default function OliveOil() {
               </div>
               {/* Decorative badge */}
               <div className="absolute -bottom-6 -left-6 bg-surface-secondary border border-brand-gold/20 p-4">
-                <span className="font-cormorant italic text-brand-gold text-lg">Product of Tunisia</span>
+                <span className="font-cormorant italic text-brand-gold text-lg">{t('oliveOil.productOfTunisia')}</span>
               </div>
             </motion.div>
           </div>
@@ -161,20 +162,20 @@ export default function OliveOil() {
       <section className="py-24 md:py-32 bg-surface-secondary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="Ce qui nous distingue"
-            title="Why Choose Our Oil"
+            accent={t('oliveOil.whyChooseAccent')}
+            title={t('oliveOil.whyChooseTitle')}
             align="center"
           />
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
+                data-testid={`feature-${index}`}
                 className="text-center group"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 border border-brand-gold/30 text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300">
@@ -193,9 +194,9 @@ export default function OliveOil() {
       <section className="py-24 md:py-32 bg-surface-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="Nos Formats"
-            title="Available Formats"
-            subtitle="From personal bottles to professional containers, find the perfect size for your needs"
+            accent={t('oliveOil.formatsAccent')}
+            title={t('oliveOil.formatsTitle')}
+            subtitle={t('oliveOil.formatsSubtitle')}
           />
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -251,8 +252,8 @@ export default function OliveOil() {
       <section className="py-24 md:py-32 bg-surface-secondary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="Notre Collection"
-            title="Product Gallery"
+            accent={t('oliveOil.galleryAccent')}
+            title={t('oliveOil.galleryTitle')}
             align="center"
           />
           
@@ -287,17 +288,17 @@ export default function OliveOil() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              Interested in Our Olive Oil?
+              {t('oliveOil.ctaTitle')}
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">
-              Contact us for wholesale inquiries, export opportunities, or to find a distributor near you.
+              {t('oliveOil.ctaSubtitle')}
             </p>
             <Link
               to="/contact"
               data-testid="olive-oil-cta-contact"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Contact Us
+              {t('oliveOil.contactUs')}
               <ArrowRight size={16} />
             </Link>
           </motion.div>

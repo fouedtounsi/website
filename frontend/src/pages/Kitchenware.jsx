@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TreeDeciduous, Brush, Heart, Sparkles } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
-import { ProductCard } from '../components/shared/ProductCard';
+import { useLanguage } from '../context/LanguageContext';
 
 const PRODUCT_IMAGES = {
   cup: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6xmzcof6_Classic%20Wine%20Cup%20REF%20T13.jpg",
@@ -18,132 +18,56 @@ const PRODUCT_IMAGES = {
   rectangularClassicBoard: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/b2b49s7q_Rectangular%20Classic%20Board.jpg"
 };
 
-const products = [
-  {
-    id: 'classic-cup',
-    name: 'Classic Wine Cup',
-    nameFr: 'Coupe Classique',
-    reference: 'T13',
-    description: 'Elegant wine goblet handcrafted from premium olive wood',
-    image: PRODUCT_IMAGES.cup
-  },
-  {
-    id: 'cutting-board',
-    name: 'Irregular Cutting Board',
-    nameFr: 'Planche à Découper Irrégulière',
-    reference: 'P02',
-    dimensions: '25/30/35/40/45 CM',
-    description: 'Natural edge cutting board with unique wood grain patterns',
-    image: PRODUCT_IMAGES.cuttingBoard
-  },
-  {
-    id: 'flat-mortar',
-    name: 'Flat Mortar',
-    nameFr: 'Mortier Plat',
-    reference: 'M03',
-    dimensions: '6/8/10/12/14/16/18 CM',
-    description: 'Traditional mortar & pestle for grinding spices and herbs',
-    image: PRODUCT_IMAGES.mortar
-  },
-  {
-    id: 'heart-dish',
-    name: 'Heart Dish',
-    nameFr: 'Plat Cœur',
-    reference: 'B08',
-    description: 'Beautiful heart-shaped serving dish for special occasions',
-    image: PRODUCT_IMAGES.heartDish
-  },
-  {
-    id: 'round-mortar',
-    name: 'Round Mortar',
-    nameFr: 'Mortier Rond',
-    reference: 'M01',
-    dimensions: '6/8/10/12/14/16/18 CM',
-    description: 'Classic round mortar & pestle perfect for crushing herbs and spices',
-    image: PRODUCT_IMAGES.roundMortar
-  },
-  {
-    id: 'rustic-chess',
-    name: 'Rustic Chess Games',
-    nameFr: "Jeux d'Echecs Rustique",
-    reference: 'J01',
-    dimensions: '30/37/50 CM',
-    description: 'Handcrafted olive wood chess set with natural rustic edge',
-    image: PRODUCT_IMAGES.chessGames
-  },
-  {
-    id: 'cutting-board-set',
-    name: 'Set of 3 Cutting Board',
-    nameFr: '3 Planches de Découpage',
-    reference: 'K04',
-    description: 'Set of three olive wood cutting boards in various sizes',
-    image: PRODUCT_IMAGES.cuttingBoardSet
-  },
-  {
-    id: 'oval-dish-set',
-    name: 'Set of 3 Oval Dipping Dish',
-    nameFr: 'Kit de 3 Plats Ovale',
-    reference: 'B12',
-    description: 'Elegant oval dipping dishes perfect for appetizers and sauces',
-    image: PRODUCT_IMAGES.ovalDishSet
-  },
-  {
-    id: 'spoon-set',
-    name: 'Spoon Table Set',
-    nameFr: 'Couvert de Cuillère',
-    reference: 'S16',
-    dimensions: '20/25/30/35 CM',
-    description: 'Complete olive wood spoon and fork set for serving',
-    image: PRODUCT_IMAGES.spoonSet
-  },
-  {
-    id: 'rectangular-board',
-    name: 'Rectangular Board',
-    nameFr: 'Planche Rectangulaire',
-    reference: 'P06',
-    dimensions: '20/25/30/35 CM',
-    description: 'Classic rectangular cutting board with natural olive wood grain',
-    image: PRODUCT_IMAGES.rectangularBoard
-  },
-  {
-    id: 'rectangular-classic-board',
-    name: 'Rectangular Classic Board',
-    nameFr: 'Planche Rectangulaire Classique',
-    reference: 'P07',
-    dimensions: '20/25/30/35 CM',
-    description: 'Elegant classic rectangular board perfect for serving and cutting',
-    image: PRODUCT_IMAGES.rectangularClassicBoard
-  }
-];
-
-const features = [
-  {
-    icon: <TreeDeciduous className="w-6 h-6" />,
-    title: 'Genuine Olive Wood',
-    titleFr: 'Bois d\'Olivier Authentique',
-    description: 'Sourced from centuries-old olive trees in Tunisia'
-  },
-  {
-    icon: <Brush className="w-6 h-6" />,
-    title: 'Handcrafted',
-    titleFr: 'Fait Main',
-    description: 'Each piece is individually shaped by skilled artisans'
-  },
-  {
-    icon: <Sparkles className="w-6 h-6" />,
-    title: 'Unique Patterns',
-    titleFr: 'Motifs Uniques',
-    description: 'Natural wood grain ensures no two pieces are alike'
-  },
-  {
-    icon: <Heart className="w-6 h-6" />,
-    title: 'Food Safe',
-    titleFr: 'Alimentaire',
-    description: 'Treated with natural oils, safe for food contact'
-  }
+const productsData = [
+  { id: 'classic-cup', nameEn: 'Classic Wine Cup', nameFr: 'Coupe Classique', reference: 'T13', image: 'cup' },
+  { id: 'cutting-board', nameEn: 'Irregular Cutting Board', nameFr: 'Planche à Découper Irrégulière', reference: 'P02', dimensions: '25/30/35/40/45 CM', image: 'cuttingBoard' },
+  { id: 'flat-mortar', nameEn: 'Flat Mortar', nameFr: 'Mortier Plat', reference: 'M03', dimensions: '6/8/10/12/14/16/18 CM', image: 'mortar' },
+  { id: 'heart-dish', nameEn: 'Heart Dish', nameFr: 'Plat Cœur', reference: 'B08', image: 'heartDish' },
+  { id: 'round-mortar', nameEn: 'Round Mortar', nameFr: 'Mortier Rond', reference: 'M01', dimensions: '6/8/10/12/14/16/18 CM', image: 'roundMortar' },
+  { id: 'rustic-chess', nameEn: 'Rustic Chess Games', nameFr: "Jeux d'Echecs Rustique", reference: 'J01', dimensions: '30/37/50 CM', image: 'chessGames' },
+  { id: 'cutting-board-set', nameEn: 'Set of 3 Cutting Board', nameFr: '3 Planches de Découpage', reference: 'K04', image: 'cuttingBoardSet' },
+  { id: 'oval-dish-set', nameEn: 'Set of 3 Oval Dipping Dish', nameFr: 'Kit de 3 Plats Ovale', reference: 'B12', image: 'ovalDishSet' },
+  { id: 'spoon-set', nameEn: 'Spoon Table Set', nameFr: 'Couvert de Cuillère', reference: 'S16', dimensions: '20/25/30/35 CM', image: 'spoonSet' },
+  { id: 'rectangular-board', nameEn: 'Rectangular Board', nameFr: 'Planche Rectangulaire', reference: 'P06', dimensions: '20/25/30/35 CM', image: 'rectangularBoard' },
+  { id: 'rectangular-classic-board', nameEn: 'Rectangular Classic Board', nameFr: 'Planche Rectangulaire Classique', reference: 'P07', dimensions: '20/25/30/35 CM', image: 'rectangularClassicBoard' }
 ];
 
 export default function Kitchenware() {
+  const { t, language } = useLanguage();
+
+  const products = productsData.map(p => ({
+    ...p,
+    name: language === 'fr' ? p.nameFr : p.nameEn,
+    image: PRODUCT_IMAGES[p.image]
+  }));
+
+  const features = [
+    {
+      icon: <TreeDeciduous className="w-6 h-6" />,
+      title: t('kitchenware.feature1Title'),
+      titleFr: "Bois d'Olivier Authentique",
+      description: t('kitchenware.feature1Desc')
+    },
+    {
+      icon: <Brush className="w-6 h-6" />,
+      title: t('kitchenware.feature2Title'),
+      titleFr: 'Fait Main',
+      description: t('kitchenware.feature2Desc')
+    },
+    {
+      icon: <Sparkles className="w-6 h-6" />,
+      title: t('kitchenware.feature3Title'),
+      titleFr: 'Motifs Uniques',
+      description: t('kitchenware.feature3Desc')
+    },
+    {
+      icon: <Heart className="w-6 h-6" />,
+      title: t('kitchenware.feature4Title'),
+      titleFr: 'Alimentaire',
+      description: t('kitchenware.feature4Desc')
+    }
+  ];
+
   return (
     <div data-testid="kitchenware-page" className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -160,34 +84,18 @@ export default function Kitchenware() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="overflow-hidden">
-                    <img
-                      src={PRODUCT_IMAGES.cup}
-                      alt="Classic Wine Cup"
-                      className="w-full h-auto"
-                    />
+                    <img src={PRODUCT_IMAGES.cup} alt="Classic Wine Cup" className="w-full h-auto" />
                   </div>
                   <div className="overflow-hidden">
-                    <img
-                      src={PRODUCT_IMAGES.heartDish}
-                      alt="Heart Dish"
-                      className="w-full h-auto"
-                    />
+                    <img src={PRODUCT_IMAGES.heartDish} alt="Heart Dish" className="w-full h-auto" />
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
                   <div className="overflow-hidden">
-                    <img
-                      src={PRODUCT_IMAGES.cuttingBoard}
-                      alt="Cutting Board"
-                      className="w-full h-auto"
-                    />
+                    <img src={PRODUCT_IMAGES.cuttingBoard} alt="Cutting Board" className="w-full h-auto" />
                   </div>
                   <div className="overflow-hidden">
-                    <img
-                      src={PRODUCT_IMAGES.mortar}
-                      alt="Flat Mortar"
-                      className="w-full h-auto"
-                    />
+                    <img src={PRODUCT_IMAGES.mortar} alt="Flat Mortar" className="w-full h-auto" />
                   </div>
                 </div>
               </div>
@@ -201,16 +109,14 @@ export default function Kitchenware() {
               className="order-1 lg:order-2"
             >
               <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-                Artisanat Tunisien
+                {t('kitchenware.heroAccent')}
               </span>
               <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 leading-tight">
-                Olive Wood Kitchenware
+                {t('kitchenware.heroTitle')}
               </h1>
               <div className="gold-line mb-6" />
               <p className="text-text-secondary text-lg leading-relaxed mb-8">
-                Discover our collection of handcrafted olive wood kitchenware. Each piece is a unique 
-                work of art, shaped by skilled Tunisian artisans using traditional techniques passed 
-                down through generations.
+                {t('kitchenware.heroDesc')}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link 
@@ -218,7 +124,7 @@ export default function Kitchenware() {
                   data-testid="kitchenware-contact-cta"
                   className="btn-primary inline-flex items-center gap-2"
                 >
-                  Inquire Now
+                  {t('kitchenware.inquireNow')}
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -231,20 +137,20 @@ export default function Kitchenware() {
       <section className="py-24 md:py-32 bg-surface-secondary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="L'Excellence Artisanale"
-            title="Craftsmanship Excellence"
+            accent={t('kitchenware.craftAccent')}
+            title={t('kitchenware.craftTitle')}
             align="center"
           />
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
+                data-testid={`feature-${index}`}
                 className="text-center group"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 border border-brand-gold/30 text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300">
@@ -263,19 +169,19 @@ export default function Kitchenware() {
       <section className="py-24 md:py-32 bg-surface-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="Notre Collection"
-            title="Product Collection"
-            subtitle="Each piece is unique, handcrafted from premium Tunisian olive wood"
+            accent={t('kitchenware.collectionAccent')}
+            title={t('kitchenware.collectionTitle')}
+            subtitle={t('kitchenware.collectionSubtitle')}
           />
           
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
                 data-testid={`product-${product.id}`}
                 className="group relative bg-surface-secondary border border-white/5 hover:border-brand-gold/30 overflow-hidden transition-all duration-500"
               >
@@ -292,7 +198,7 @@ export default function Kitchenware() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
                   <div className="p-6 sm:p-8 w-full">
                     <span className="font-cormorant italic text-brand-gold text-sm mb-2 block">
-                      {product.nameFr}
+                      {language === 'fr' ? product.nameEn : product.nameFr}
                     </span>
                     <h3 className="font-playfair text-2xl text-text-primary mb-2">
                       {product.name}
@@ -303,11 +209,8 @@ export default function Kitchenware() {
                         DIM: {product.dimensions}
                       </p>
                     )}
-                    <p className="text-text-muted text-xs uppercase tracking-widest mb-2">
+                    <p className="text-text-muted text-xs uppercase tracking-widest">
                       REF: {product.reference}
-                    </p>
-                    <p className="text-text-secondary text-sm leading-relaxed">
-                      {product.description}
                     </p>
                   </div>
                 </div>
@@ -335,21 +238,17 @@ export default function Kitchenware() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-                Un Savoir-Faire Ancestral
+                {t('kitchenware.legacyAccent')}
               </span>
               <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-                A Legacy of Craftsmanship
+                {t('kitchenware.legacyTitle')}
               </h2>
               <div className="gold-line mb-6" />
               <p className="text-text-secondary text-lg leading-relaxed mb-6">
-                For generations, Tunisian artisans have transformed olive wood into functional 
-                works of art. Each piece in our collection carries the warmth and character 
-                of the Mediterranean.
+                {t('kitchenware.legacyDesc1')}
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Olive wood is renowned for its durability, natural antibacterial properties, 
-                and stunning grain patterns. No two pieces are ever the same, making each 
-                item truly unique.
+                {t('kitchenware.legacyDesc2')}
               </p>
             </motion.div>
             
@@ -368,7 +267,7 @@ export default function Kitchenware() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-surface-primary border border-brand-gold/20 p-4">
-                <span className="font-cormorant italic text-brand-gold text-lg">Fait Main en Tunisie</span>
+                <span className="font-cormorant italic text-brand-gold text-lg">{t('kitchenware.madeInTunisia')}</span>
               </div>
             </motion.div>
           </div>
@@ -385,17 +284,17 @@ export default function Kitchenware() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              Interested in Our Kitchenware?
+              {t('kitchenware.ctaTitle')}
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">
-              Contact us for wholesale orders, custom pieces, or to become a distributor.
+              {t('kitchenware.ctaSubtitle')}
             </p>
             <Link
               to="/contact"
               data-testid="kitchenware-cta-contact"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Get in Touch
+              {t('kitchenware.getInTouch')}
               <ArrowRight size={16} />
             </Link>
           </motion.div>
