@@ -198,7 +198,7 @@ export default function OliveOil() {
             subtitle="From personal bottles to professional containers, find the perfect size for your needs"
           />
           
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -209,32 +209,37 @@ export default function OliveOil() {
                 data-testid={`product-${product.id}`}
                 className="group relative bg-surface-secondary border border-white/5 hover:border-brand-gold/30 overflow-hidden transition-all duration-500"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2">
-                  {/* Image */}
-                  <div className="aspect-square sm:aspect-auto overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="p-6 sm:p-8 flex flex-col justify-center">
-                    <span className="font-cormorant italic text-brand-gold text-sm mb-2">
-                      {product.nameFr}
-                    </span>
-                    <h3 className="font-playfair text-2xl text-text-primary mb-2">
-                      {product.name}
-                    </h3>
-                    <div className="gold-line mb-4" />
-                    <p className="text-text-muted text-xs uppercase tracking-widest mb-2">
-                      {product.size}
-                    </p>
-                    <p className="text-text-secondary text-sm leading-relaxed">
-                      {product.description}
-                    </p>
-                  </div>
+                {/* SKU Badge */}
+                <div className="absolute top-4 left-4 z-10 bg-black/70 px-3 py-1">
+                  <span className="text-xs uppercase tracking-widest text-brand-gold">
+                    SKU: {product.sku}
+                  </span>
+                </div>
+                
+                {/* Image */}
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <span className="font-cormorant italic text-brand-gold text-sm mb-2 block">
+                    {product.nameFr}
+                  </span>
+                  <h3 className="font-playfair text-xl text-text-primary mb-2">
+                    {product.name}
+                  </h3>
+                  <div className="gold-line mb-4" />
+                  <p className="text-text-muted text-xs uppercase tracking-widest mb-2">
+                    {product.size}
+                  </p>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    {product.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
