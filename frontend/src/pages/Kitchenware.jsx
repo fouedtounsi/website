@@ -194,8 +194,11 @@ export default function Kitchenware() {
                 data-testid={`product-${product.id}`}
                 className="group relative bg-surface-secondary border border-white/5 hover:border-brand-gold/30 overflow-hidden transition-all duration-500"
               >
-                {/* Full Image Card */}
-                <div className="aspect-square overflow-hidden">
+                {/* Full Image Card - Clickable for zoom */}
+                <div 
+                  className="aspect-square overflow-hidden cursor-pointer relative"
+                  onClick={() => openLightbox(index)}
+                >
                   <img
                     src={product.image}
                     alt={product.name}
