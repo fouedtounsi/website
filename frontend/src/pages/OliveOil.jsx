@@ -142,7 +142,7 @@ export default function OliveOil() {
             >
               <div className="relative overflow-hidden">
                 <img
-                  src={PRODUCT_IMAGES[0]}
+                  src={PRODUCT_IMAGES['5l']}
                   alt="Tunisia Olive Oil Extra Virgin Olive Oil"
                   className="w-full h-auto"
                 />
