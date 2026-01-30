@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Leaf, Award, Globe } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
+import { useLanguage } from '../context/LanguageContext';
 
 const VIDEO_URL = "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/4597fkxz_Video%202026-01-14%20at%2011.06.14%20AM.mp4";
 
@@ -17,21 +18,23 @@ const PRODUCT_IMAGES = {
 };
 
 export default function Home() {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: <Leaf className="w-6 h-6" />,
-      title: "100% Biological",
-      description: "Certified organic cultivation with no pesticides or chemicals"
+      title: t('home.feature1Title'),
+      description: t('home.feature1Desc')
     },
     {
       icon: <Award className="w-6 h-6" />,
-      title: "Superior Quality",
-      description: "First cold pressing for maximum flavor and nutrients"
+      title: t('home.feature2Title'),
+      description: t('home.feature2Desc')
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: "Product of Tunisia",
-      description: "Sourced from the finest olive groves of Sfax"
+      title: t('home.feature3Title'),
+      description: t('home.feature3Desc')
     }
   ];
 
@@ -62,13 +65,13 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             <span className="font-cormorant italic text-brand-gold text-xl md:text-2xl mb-4 block">
-              Qualité Supérieure / Superior Quality
+              {t('home.heroAccent')}
             </span>
             <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-text-primary mb-6 leading-tight">
-              Tunisia Olive Oil
+              {t('home.heroTitle')}
             </h1>
             <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10">
-              Premium biological extra virgin olive oil & handcrafted olive wood kitchenware from Tunisia
+              {t('home.heroSubtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -76,7 +79,7 @@ export default function Home() {
                 data-testid="hero-cta-olive-oil"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
-                Explore Olive Oil
+                {t('home.exploreOil')}
                 <ArrowRight size={16} />
               </Link>
               <Link
@@ -84,7 +87,7 @@ export default function Home() {
                 data-testid="hero-cta-kitchenware"
                 className="btn-secondary inline-flex items-center justify-center gap-2"
               >
-                View Kitchenware
+                {t('home.viewKitchenware')}
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -128,9 +131,9 @@ export default function Home() {
       <section className="py-24 md:py-32 bg-surface-secondary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionHeader
-            accent="Discover Our Collections"
-            title="Two Traditions, One Excellence"
-            subtitle="From the golden olive groves of Tunisia to your table - experience the finest olive products"
+            accent={t('home.collectionsAccent')}
+            title={t('home.collectionsTitle')}
+            subtitle={t('home.collectionsSubtitle')}
           />
 
           {/* Bento Grid */}
@@ -147,17 +150,17 @@ export default function Home() {
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={PRODUCT_IMAGES.oliveOil[0]}
-                    alt="Tunisia Olive Oil Olive Oil"
+                    alt="Tunisia Olive Oil"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
                   <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <span className="text-brand-gold font-cormorant italic text-lg">Huile d'Olive Extra Vierge</span>
-                    <h3 className="font-playfair text-3xl md:text-4xl text-text-primary mt-2">Extra Virgin Olive Oil</h3>
-                    <p className="text-text-secondary mt-2 max-w-md">Biological first cold pressed olive oil in various formats: 250ml, 750ml, 1L & 5L</p>
+                    <span className="text-brand-gold font-cormorant italic text-lg">{t('home.extraVirgin')}</span>
+                    <h3 className="font-playfair text-3xl md:text-4xl text-text-primary mt-2">{t('home.extraVirgin')}</h3>
+                    <p className="text-text-secondary mt-2 max-w-md">250ml, 500ml, 750ml, 1L, 3L & 5L</p>
                     <span className="inline-flex items-center gap-2 text-brand-gold mt-4 text-sm uppercase tracking-widest group-hover:gap-3 transition-all">
-                      Explore Collection <ArrowRight size={14} />
+                      {t('home.exploreCollection')} <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>
@@ -183,7 +186,7 @@ export default function Home() {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                     <div>
-                      <span className="text-brand-gold text-xs uppercase tracking-widest">Multiple Formats</span>
+                      <span className="text-brand-gold text-xs uppercase tracking-widest">{t('home.multipleFormats')}</span>
                       <p className="text-text-primary font-playfair text-lg mt-1">250ml - 5L</p>
                     </div>
                   </div>
@@ -207,8 +210,8 @@ export default function Home() {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                     <div>
-                      <span className="text-brand-gold text-xs uppercase tracking-widest">Handcrafted</span>
-                      <p className="text-text-primary font-playfair text-lg mt-1">Olive Wood</p>
+                      <span className="text-brand-gold text-xs uppercase tracking-widest">{t('home.handcrafted')}</span>
+                      <p className="text-text-primary font-playfair text-lg mt-1">{t('home.oliveWood')}</p>
                     </div>
                   </div>
                 </Link>
@@ -233,11 +236,11 @@ export default function Home() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent">
                   <div className="absolute left-0 top-1/2 transform -translate-y-1/2 p-8 md:p-12">
-                    <span className="text-brand-gold font-cormorant italic text-lg">Artisanat Tunisien</span>
-                    <h3 className="font-playfair text-3xl md:text-4xl text-text-primary mt-2">Olive Wood Kitchenware</h3>
-                    <p className="text-text-secondary mt-2 max-w-md">Handcrafted cups, cutting boards, mortars & unique serving pieces</p>
+                    <span className="text-brand-gold font-cormorant italic text-lg">{t('kitchenware.heroAccent')}</span>
+                    <h3 className="font-playfair text-3xl md:text-4xl text-text-primary mt-2">{t('home.oliveWoodKitchenware')}</h3>
+                    <p className="text-text-secondary mt-2 max-w-md">{t('kitchenware.heroDesc').substring(0, 80)}...</p>
                     <span className="inline-flex items-center gap-2 text-brand-gold mt-4 text-sm uppercase tracking-widest group-hover:gap-3 transition-all">
-                      View Collection <ArrowRight size={14} />
+                      {t('home.viewCollection')} <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>
@@ -257,20 +260,20 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-              Première Pression à Froid / First Cold Pressing
+              {t('home.ctaAccent')}
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              Experience Tunisian Excellence
+              {t('home.ctaTitle')}
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">
-              From our olive groves to your kitchen - discover the authentic taste of Tunisia
+              {t('home.ctaSubtitle')}
             </p>
             <Link
               to="/contact"
               data-testid="cta-contact"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Get in Touch
+              {t('home.getInTouch')}
               <ArrowRight size={16} />
             </Link>
           </motion.div>
