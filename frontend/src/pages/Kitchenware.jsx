@@ -36,6 +36,13 @@ const productsData = [
 
 export default function Kitchenware() {
   const { t, language } = useLanguage();
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (index) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   const products = productsData.map(p => ({
     ...p,
