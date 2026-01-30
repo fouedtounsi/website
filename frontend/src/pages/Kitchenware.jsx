@@ -8,7 +8,12 @@ const PRODUCT_IMAGES = {
   cup: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6xmzcof6_Classic%20Wine%20Cup%20REF%20T13.jpg",
   cuttingBoard: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/3w9avqvz_Cutting%20Board%20REF%20P02.jpg",
   mortar: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/hg47jtoq_Flat%20Mortard.jpg",
-  heartDish: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/h1ifnun3_Heart%20Dish%20REF%20B08.jpg"
+  heartDish: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/h1ifnun3_Heart%20Dish%20REF%20B08.jpg",
+  roundMortar: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/tx4e8wsg_Round%20Mortard%20REF%20M01.jpg",
+  chessGames: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/b8kwpqk3_Rustic%20Chess%20Games.jpg",
+  cuttingBoardSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/ublmw7w9_Set%20of%203%20Cutting%20Board.jpg",
+  ovalDishSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/ststs50l_Set%20of%203%20Oval%20Dipping%20Dish%20Ref%20B12.jpg",
+  spoonSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/5be4zzh9_Spoon%20Table%20REF%20S16.jpg"
 };
 
 const products = [
@@ -45,6 +50,49 @@ const products = [
     reference: 'B08',
     description: 'Beautiful heart-shaped serving dish for special occasions',
     image: PRODUCT_IMAGES.heartDish
+  },
+  {
+    id: 'round-mortar',
+    name: 'Round Mortar',
+    nameFr: 'Mortier Rond',
+    reference: 'M01',
+    dimensions: '6/8/10/12/14/16/18 CM',
+    description: 'Classic round mortar & pestle perfect for crushing herbs and spices',
+    image: PRODUCT_IMAGES.roundMortar
+  },
+  {
+    id: 'rustic-chess',
+    name: 'Rustic Chess Games',
+    nameFr: "Jeux d'Echecs Rustique",
+    reference: 'J01',
+    dimensions: '30/37/50 CM',
+    description: 'Handcrafted olive wood chess set with natural rustic edge',
+    image: PRODUCT_IMAGES.chessGames
+  },
+  {
+    id: 'cutting-board-set',
+    name: 'Set of 3 Cutting Board',
+    nameFr: '3 Planches de Découpage',
+    reference: 'K04',
+    description: 'Set of three olive wood cutting boards in various sizes',
+    image: PRODUCT_IMAGES.cuttingBoardSet
+  },
+  {
+    id: 'oval-dish-set',
+    name: 'Set of 3 Oval Dipping Dish',
+    nameFr: 'Kit de 3 Plats Ovale',
+    reference: 'B12',
+    description: 'Elegant oval dipping dishes perfect for appetizers and sauces',
+    image: PRODUCT_IMAGES.ovalDishSet
+  },
+  {
+    id: 'spoon-set',
+    name: 'Spoon Table Set',
+    nameFr: 'Couvert de Cuillère',
+    reference: 'S16',
+    dimensions: '20/25/30/35 CM',
+    description: 'Complete olive wood spoon and fork set for serving',
+    image: PRODUCT_IMAGES.spoonSet
   }
 ];
 
