@@ -1,0 +1,279 @@
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Droplet, Leaf, Award, ThermometerSnowflake } from 'lucide-react';
+import { SectionHeader } from '../components/shared/SectionHeader';
+
+const PRODUCT_IMAGES = [
+  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/s0xiozcb_Image%202026-01-14%20at%2011.04.08%20AM%20%281%29.jpeg",
+  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/jbnqgx2x_Image%202026-01-14%20at%2011.04.09%20AM%20%281%29.jpeg",
+  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/ovii6g2w_Image%202026-01-14%20at%2011.04.12%20AM%20%281%29.jpeg",
+  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/rxzvc8pm_Image%202026-01-14%20at%2011.04.12%20AM%20%282%29.jpeg"
+];
+
+const products = [
+  {
+    id: 'oil-250ml',
+    name: '250ml Bottle',
+    nameFr: 'Bouteille 250ml',
+    size: '250ml / 8.45 fl oz',
+    description: 'Perfect for personal use or as a gift',
+    image: PRODUCT_IMAGES[3]
+  },
+  {
+    id: 'oil-750ml',
+    name: '750ml Bottle',
+    nameFr: 'Bouteille 750ml',
+    size: '750ml / 25.4 fl oz',
+    description: 'Ideal for regular household cooking',
+    image: PRODUCT_IMAGES[2]
+  },
+  {
+    id: 'oil-1l',
+    name: '1L Bottle',
+    nameFr: 'Bouteille 1L',
+    size: '1L / 33.81 fl oz',
+    description: 'Best value for everyday use',
+    image: PRODUCT_IMAGES[1]
+  },
+  {
+    id: 'oil-5l',
+    name: '5L Tin',
+    nameFr: 'Bidon 5L',
+    size: '5L / 169.07 fl oz',
+    description: 'Professional size for restaurants & bulk buyers',
+    image: PRODUCT_IMAGES[0]
+  }
+];
+
+const features = [
+  {
+    icon: <Leaf className="w-6 h-6" />,
+    title: '100% Biological',
+    titleFr: '100% Biologique',
+    description: 'Certified organic olives grown without pesticides or synthetic fertilizers'
+  },
+  {
+    icon: <ThermometerSnowflake className="w-6 h-6" />,
+    title: 'First Cold Pressing',
+    titleFr: 'Première Pression à Froid',
+    description: 'Extracted at temperatures below 27°C to preserve nutrients and flavor'
+  },
+  {
+    icon: <Droplet className="w-6 h-6" />,
+    title: 'Extra Virgin Grade',
+    titleFr: 'Extra Vierge',
+    description: 'Acidity level below 0.8%, meeting the highest quality standards'
+  },
+  {
+    icon: <Award className="w-6 h-6" />,
+    title: 'Superior Quality',
+    titleFr: 'Qualité Supérieure',
+    description: 'Sourced from the finest olive groves in the Sfax region of Tunisia'
+  }
+];
+
+export default function OliveOil() {
+  return (
+    <div data-testid="olive-oil-page" className="min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="relative py-24 md:py-32 bg-surface-primary overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+                Huile d'Olive Extra Vierge
+              </span>
+              <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 leading-tight">
+                Extra Virgin Olive Oil
+              </h1>
+              <div className="gold-line mb-6" />
+              <p className="text-text-secondary text-lg leading-relaxed mb-8">
+                Experience the pure taste of Tunisian sunshine. Our biological extra virgin olive oil 
+                is cold-pressed from hand-picked olives, capturing the essence of the Mediterranean 
+                in every drop.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  to="/contact"
+                  data-testid="olive-oil-contact-cta"
+                  className="btn-primary inline-flex items-center gap-2"
+                >
+                  Inquire Now
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Hero Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={PRODUCT_IMAGES[0]}
+                  alt="Huile de Sfax Extra Virgin Olive Oil"
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-brand-gold/20" />
+              </div>
+              {/* Decorative badge */}
+              <div className="absolute -bottom-6 -left-6 bg-surface-secondary border border-brand-gold/20 p-4">
+                <span className="font-cormorant italic text-brand-gold text-lg">Product of Tunisia</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-24 md:py-32 bg-surface-secondary">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeader
+            accent="Ce qui nous distingue"
+            title="Why Choose Our Oil"
+            align="center"
+          />
+          
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                data-testid={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
+                className="text-center group"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 border border-brand-gold/30 text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="font-playfair text-xl text-text-primary mb-1">{feature.title}</h3>
+                <p className="font-cormorant italic text-brand-gold text-sm mb-3">{feature.titleFr}</p>
+                <p className="text-text-secondary text-sm leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="py-24 md:py-32 bg-surface-primary">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeader
+            accent="Nos Formats"
+            title="Available Formats"
+            subtitle="From personal bottles to professional containers, find the perfect size for your needs"
+          />
+          
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                data-testid={`product-${product.id}`}
+                className="group relative bg-surface-secondary border border-white/5 hover:border-brand-gold/30 overflow-hidden transition-all duration-500"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2">
+                  {/* Image */}
+                  <div className="aspect-square sm:aspect-auto overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6 sm:p-8 flex flex-col justify-center">
+                    <span className="font-cormorant italic text-brand-gold text-sm mb-2">
+                      {product.nameFr}
+                    </span>
+                    <h3 className="font-playfair text-2xl text-text-primary mb-2">
+                      {product.name}
+                    </h3>
+                    <div className="gold-line mb-4" />
+                    <p className="text-text-muted text-xs uppercase tracking-widest mb-2">
+                      {product.size}
+                    </p>
+                    <p className="text-text-secondary text-sm leading-relaxed">
+                      {product.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-24 md:py-32 bg-surface-secondary">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeader
+            accent="Notre Collection"
+            title="Product Gallery"
+            align="center"
+          />
+          
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {PRODUCT_IMAGES.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="aspect-square overflow-hidden group"
+              >
+                <img
+                  src={image}
+                  alt={`Huile de Sfax product ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 md:py-32 bg-surface-primary">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
+              Interested in Our Olive Oil?
+            </h2>
+            <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">
+              Contact us for wholesale inquiries, export opportunities, or to find a distributor near you.
+            </p>
+            <Link
+              to="/contact"
+              data-testid="olive-oil-cta-contact"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              Contact Us
+              <ArrowRight size={16} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}
