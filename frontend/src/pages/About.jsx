@@ -176,29 +176,53 @@ export default function About() {
         </div>
       </section>
 
-      {/* Tunisia Section */}
+      {/* Video Section */}
       <section className="py-24 md:py-32 bg-surface-primary">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-brand-gold font-cormorant italic text-2xl mb-4 block">
-              {t('about.tunisiaAccent')}
-            </span>
-            <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              {t('about.tunisiaTitle')}
-            </h2>
-            <p className="text-text-secondary text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-              {t('about.tunisiaDesc')}
-            </p>
-            <div className="inline-flex items-center gap-3 text-brand-gold">
-              <MapPin size={24} />
-              <span className="font-playfair text-2xl">Montreal, Quebec, Canada</span>
-            </div>
-          </motion.div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Video */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="overflow-hidden border border-brand-gold/20">
+                <video
+                  controls
+                  className="w-full h-auto"
+                  poster={PRODUCT_IMAGE}
+                >
+                  <source src={VIDEO_URL} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+                {t('about.tunisiaAccent')}
+              </span>
+              <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
+                {t('about.tunisiaTitle')}
+              </h2>
+              <div className="gold-line mb-6" />
+              <p className="text-text-secondary text-lg leading-relaxed">
+                {t('about.tunisiaDesc')}
+              </p>
+              <div className="inline-flex items-center gap-3 text-brand-gold mt-6">
+                <MapPin size={24} />
+                <span className="font-playfair text-xl">Montreal, Quebec, Canada</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
