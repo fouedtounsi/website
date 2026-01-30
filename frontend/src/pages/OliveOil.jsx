@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Droplet, Leaf, Award, ThermometerSnowflake } from 'lucide-react';
+import { ArrowRight, Droplet, Leaf, Award, ThermometerSnowflake, ZoomIn } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
 import { useLanguage } from '../context/LanguageContext';
+import { ImageLightbox } from '../components/shared/ImageLightbox';
 
 const PRODUCT_IMAGES = {
   '250ml': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/rxzvc8pm_Image%202026-01-14%20at%2011.04.12%20AM%20%282%29.jpeg",
