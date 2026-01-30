@@ -316,6 +316,19 @@ export default function Kitchenware() {
           </motion.div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={products.map(p => ({
+          src: p.image,
+          title: p.name,
+          subtitle: language === 'fr' ? p.nameEn : p.nameFr,
+          reference: p.reference
+        }))}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </div>
   );
 }
