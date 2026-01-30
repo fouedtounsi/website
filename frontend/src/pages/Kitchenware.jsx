@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreeDeciduous, Brush, Heart, Sparkles } from 'lucide-react';
+import { ArrowRight, TreeDeciduous, Brush, Heart, Sparkles, ZoomIn } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
 import { useLanguage } from '../context/LanguageContext';
+import { ImageLightbox } from '../components/shared/ImageLightbox';
 
 const PRODUCT_IMAGES = {
   cup: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6xmzcof6_Classic%20Wine%20Cup%20REF%20T13.jpg",
