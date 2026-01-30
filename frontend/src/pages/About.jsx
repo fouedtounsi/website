@@ -9,8 +9,8 @@ const PRODUCT_IMAGE = "https://customer-assets.emergentagent.com/job_8a2d9a0f-52
 
 const stats = [
   { icon: <Calendar className="w-6 h-6" />, value: 'Est. 2010', label: 'Years of Excellence' },
-  { icon: <MapPin className="w-6 h-6" />, value: 'Tunisia', label: 'Tunisia' },
-  { icon: <Users className="w-6 h-6" />, value: '50+', label: 'Countries Served' },
+  { icon: <MapPin className="w-6 h-6" />, value: 'Montreal', label: 'Canada' },
+  { icon: <Users className="w-6 h-6" />, value: 'Canada-wide', label: 'Delivery' },
   { icon: <Award className="w-6 h-6" />, value: '100%', label: 'Organic Certified' }
 ];
 
