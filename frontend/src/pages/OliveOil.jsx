@@ -320,6 +320,19 @@ export default function OliveOil() {
           </motion.div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={products.map(p => ({
+          src: p.image,
+          title: p.name,
+          subtitle: p.nameFr,
+          reference: p.sku
+        }))}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </div>
   );
 }
