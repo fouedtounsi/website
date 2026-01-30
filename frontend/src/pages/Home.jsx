@@ -65,7 +65,7 @@ export default function Home() {
               Qualité Supérieure / Superior Quality
             </span>
             <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-text-primary mb-6 leading-tight">
-              Huile de Tunisia
+              Tunisia Olive Oil
             </h1>
             <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10">
               Premium biological extra virgin olive oil & handcrafted olive wood kitchenware from Tunisia
@@ -147,7 +147,7 @@ export default function Home() {
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={PRODUCT_IMAGES.oliveOil[0]}
-                    alt="Huile de Tunisia Olive Oil"
+                    alt="Tunisia Olive Oil Olive Oil"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>

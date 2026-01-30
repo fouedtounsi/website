@@ -119,7 +119,7 @@ export default function OliveOil() {
               <div className="relative overflow-hidden">
                 <img
                   src={PRODUCT_IMAGES[0]}
-                  alt="Huile de Tunisia Extra Virgin Olive Oil"
+                  alt="Tunisia Olive Oil Extra Virgin Olive Oil"
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-brand-gold/20" />
@@ -239,7 +239,7 @@ export default function OliveOil() {
               >
                 <img
                   src={image}
-                  alt={`Huile de Tunisia product ${index + 1}`}
+                  alt={`Tunisia Olive Oil product ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </motion.div>
