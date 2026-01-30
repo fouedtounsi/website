@@ -9,11 +9,13 @@ const PRODUCT_IMAGES = {
   cuttingBoard: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/3w9avqvz_Cutting%20Board%20REF%20P02.jpg",
   mortar: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/hg47jtoq_Flat%20Mortard.jpg",
   heartDish: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/h1ifnun3_Heart%20Dish%20REF%20B08.jpg",
-  roundMortar: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/tx4e8wsg_Round%20Mortard%20REF%20M01.jpg",
-  chessGames: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/b8kwpqk3_Rustic%20Chess%20Games.jpg",
+  roundMortar: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/depri7sw_Round%20Mortard%20REF%20M01.jpg",
+  chessGames: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6su95ih4_Rustic%20Chess%20Games.jpg",
   cuttingBoardSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/ublmw7w9_Set%20of%203%20Cutting%20Board.jpg",
-  ovalDishSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/ststs50l_Set%20of%203%20Oval%20Dipping%20Dish%20Ref%20B12.jpg",
-  spoonSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/5be4zzh9_Spoon%20Table%20REF%20S16.jpg"
+  ovalDishSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/gvi5wag7_Set%20of%203%20Oval%20Dipping%20Dish%20Ref%20B12.jpg",
+  spoonSet: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/5be4zzh9_Spoon%20Table%20REF%20S16.jpg",
+  rectangularBoard: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/vn5553ii_Rectangular%20Board.jpg",
+  rectangularClassicBoard: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/b2b49s7q_Rectangular%20Classic%20Board.jpg"
 };
 
 const products = [
