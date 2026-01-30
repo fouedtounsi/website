@@ -256,10 +256,10 @@ export default function OliveOil() {
             align="center"
           />
           
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {PRODUCT_IMAGES.map((image, index) => (
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-4">
+            {Object.entries(PRODUCT_IMAGES).map(([size, image], index) => (
               <motion.div
-                key={index}
+                key={size}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -268,7 +268,7 @@ export default function OliveOil() {
               >
                 <img
                   src={image}
-                  alt={`Tunisia Olive Oil product ${index + 1}`}
+                  alt={`Tunisia Olive Oil ${size}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </motion.div>
