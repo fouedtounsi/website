@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 const LOGO_URL = "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6f2dfogv_Logo%20IJL.jpg";
 const HERO_BG = "https://images.unsplash.com/photo-1729834819935-4365b7a42d08?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHx0dW5pc2lhbiUyMG9saXZlJTIwZ3JvdmUlMjBzdW5zZXQlMjBsYW5kc2NhcGV8ZW58MHx8fHwxNzY5ODAxOTY3fDA&ixlib=rb-4.1.0&q=85";
 const PRODUCT_IMAGE = "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/ovii6g2w_Image%202026-01-14%20at%2011.04.12%20AM%20%281%29.jpeg";
+const VIDEO_URL = "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/4597fkxz_Video%202026-01-14%20at%2011.06.14%20AM.mp4";
 
 export default function About() {
   const { t } = useLanguage();
