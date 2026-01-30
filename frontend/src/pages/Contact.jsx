@@ -53,13 +53,13 @@ export default function Contact() {
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
-      value: '+216 00 000 000',
-      href: 'tel:+21600000000'
+      value: '+1 (514) 000-0000',
+      href: 'tel:+15140000000'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Location',
-      value: 'Sfax, Tunisia',
+      value: 'Montreal, Quebec, Canada',
       href: null
     }
   ];
