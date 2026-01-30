@@ -3,45 +3,69 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Droplet, Leaf, Award, ThermometerSnowflake } from 'lucide-react';
 import { SectionHeader } from '../components/shared/SectionHeader';
 
-const PRODUCT_IMAGES = [
-  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/s0xiozcb_Image%202026-01-14%20at%2011.04.08%20AM%20%281%29.jpeg",
-  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/jbnqgx2x_Image%202026-01-14%20at%2011.04.09%20AM%20%281%29.jpeg",
-  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/ovii6g2w_Image%202026-01-14%20at%2011.04.12%20AM%20%281%29.jpeg",
-  "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/rxzvc8pm_Image%202026-01-14%20at%2011.04.12%20AM%20%282%29.jpeg"
-];
+const PRODUCT_IMAGES = {
+  '250ml': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/rxzvc8pm_Image%202026-01-14%20at%2011.04.12%20AM%20%282%29.jpeg",
+  '500ml': "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/xdffe8un_500%20ml.jpg",
+  '750ml': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/ovii6g2w_Image%202026-01-14%20at%2011.04.12%20AM%20%281%29.jpeg",
+  '1l': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/jbnqgx2x_Image%202026-01-14%20at%2011.04.09%20AM%20%281%29.jpeg",
+  '3l': "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/pzhqk6dm_3l.jpg",
+  '5l': "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/s0xiozcb_Image%202026-01-14%20at%2011.04.08%20AM%20%281%29.jpeg"
+};
 
 const products = [
   {
     id: 'oil-250ml',
     name: '250ml Bottle',
     nameFr: 'Bouteille 250ml',
+    sku: 'TOO-250',
     size: '250ml / 8.45 fl oz',
     description: 'Perfect for personal use or as a gift',
-    image: PRODUCT_IMAGES[3]
+    image: PRODUCT_IMAGES['250ml']
+  },
+  {
+    id: 'oil-500ml',
+    name: '500ml Bottle',
+    nameFr: 'Bouteille 500ml',
+    sku: 'TOO-500',
+    size: '500ml / 16.9 fl oz',
+    description: 'Ideal size for regular cooking needs',
+    image: PRODUCT_IMAGES['500ml']
   },
   {
     id: 'oil-750ml',
     name: '750ml Bottle',
     nameFr: 'Bouteille 750ml',
+    sku: 'TOO-750',
     size: '750ml / 25.4 fl oz',
-    description: 'Ideal for regular household cooking',
-    image: PRODUCT_IMAGES[2]
+    description: 'Popular choice for household cooking',
+    image: PRODUCT_IMAGES['750ml']
   },
   {
     id: 'oil-1l',
     name: '1L Bottle',
     nameFr: 'Bouteille 1L',
+    sku: 'TOO-1000',
     size: '1L / 33.81 fl oz',
     description: 'Best value for everyday use',
-    image: PRODUCT_IMAGES[1]
+    image: PRODUCT_IMAGES['1l']
+  },
+  {
+    id: 'oil-3l',
+    name: '3L Jug',
+    nameFr: 'Bidon 3L',
+    sku: 'TOO-3000',
+    size: '3L / 101.44 fl oz',
+    description: 'Family size for frequent cooking',
+    image: PRODUCT_IMAGES['3l']
   },
   {
     id: 'oil-5l',
     name: '5L Tin',
     nameFr: 'Bidon 5L',
+    sku: 'TOO-5000',
     size: '5L / 169.07 fl oz',
     description: 'Professional size for restaurants & bulk buyers',
-    image: PRODUCT_IMAGES[0]
+    image: PRODUCT_IMAGES['5l']
   }
 ];
 
