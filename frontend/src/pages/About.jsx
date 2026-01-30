@@ -227,19 +227,19 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-brand-gold font-cormorant italic text-2xl mb-4 block">
-              Produit de Tunisie
+              From Tunisia to Canada
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              Product of Tunisia
+              Product of Tunisia • Delivered in Canada
             </h2>
             <p className="text-text-secondary text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-              Tunisia has been cultivating olives for over 3,000 years. The unique climate, 
-              soil, and traditional farming methods of the Tunisia region produce some of the 
-              world's finest olive oil. We're proud to carry this legacy forward.
+              Tunisia has been cultivating olives for over 3,000 years. We import the finest 
+              extra virgin olive oil directly from Tunisia to our warehouse in Montreal. 
+              Orders ship across Canada with fast, reliable delivery.
             </p>
             <div className="inline-flex items-center gap-3 text-brand-gold">
               <MapPin size={24} />
-              <span className="font-playfair text-2xl">Tunisia, Tunisia</span>
+              <span className="font-playfair text-2xl">Montreal, Quebec, Canada</span>
             </div>
           </motion.div>
         </div>
