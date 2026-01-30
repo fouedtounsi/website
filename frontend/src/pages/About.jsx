@@ -68,12 +68,13 @@ export default function About() {
               <div className="gold-line mb-6" />
               <p className="text-text-secondary text-lg leading-relaxed mb-6">
                 IJL International is a family-owned company dedicated to bringing the finest 
-                Tunisian products to the world. Based in Tunisia, the heart of Tunisia's olive 
-                region, we take pride in our heritage and commitment to excellence.
+                Tunisian products to Canada. Based in Montreal, Quebec, we are the Canadian 
+                subsidiary importing premium olive oil directly from Tunisia's finest groves.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
                 Our mission is to share the authentic taste and craftsmanship of Tunisia 
-                with global markets, while supporting local farmers and artisans.
+                with Canadian markets. Products available in our Montreal warehouse with 
+                delivery across Canada.
               </p>
             </motion.div>
 
