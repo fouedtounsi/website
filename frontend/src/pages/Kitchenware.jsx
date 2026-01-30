@@ -95,6 +95,24 @@ const products = [
     dimensions: '20/25/30/35 CM',
     description: 'Complete olive wood spoon and fork set for serving',
     image: PRODUCT_IMAGES.spoonSet
+  },
+  {
+    id: 'rectangular-board',
+    name: 'Rectangular Board',
+    nameFr: 'Planche Rectangulaire',
+    reference: 'P06',
+    dimensions: '20/25/30/35 CM',
+    description: 'Classic rectangular cutting board with natural olive wood grain',
+    image: PRODUCT_IMAGES.rectangularBoard
+  },
+  {
+    id: 'rectangular-classic-board',
+    name: 'Rectangular Classic Board',
+    nameFr: 'Planche Rectangulaire Classique',
+    reference: 'P07',
+    dimensions: '20/25/30/35 CM',
+    description: 'Elegant classic rectangular board perfect for serving and cutting',
+    image: PRODUCT_IMAGES.rectangularClassicBoard
   }
 ];
 
