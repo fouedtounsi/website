@@ -347,13 +347,7 @@ export default function Home() {
       {/* ==================== GALLERY SECTION ==================== */}
       <section className="py-24 md:py-32 bg-surface-secondary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
               {language === 'fr' ? 'Galerie' : 'Gallery'}
             </span>
@@ -361,33 +355,23 @@ export default function Home() {
               {language === 'fr' ? 'Notre Collection' : 'Our Collection'}
             </h2>
             <div className="gold-line mx-auto" />
-          </motion.div>
+          </div>
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {/* Olive Trees */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="aspect-square overflow-hidden group col-span-2 row-span-2"
-            >
+            <div className="aspect-square overflow-hidden group col-span-2 row-span-2">
               <img
                 src={OLIVE_TREES.tree1}
                 alt="Tunisian Olive Grove"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-            </motion.div>
+            </div>
 
             {/* Products */}
             {[...PRODUCT_IMAGES.oliveOil.slice(0, 2), ...PRODUCT_IMAGES.kitchenware.slice(0, 4)].map((image, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="aspect-square overflow-hidden group"
               >
                 <img
@@ -395,23 +379,17 @@ export default function Home() {
                   alt={`Product ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-              </motion.div>
+              </div>
             ))}
 
             {/* Second Olive Tree */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="aspect-square overflow-hidden group col-span-2"
-            >
+            <div className="aspect-square overflow-hidden group col-span-2">
               <img
                 src={OLIVE_TREES.tree2}
                 alt="Ancient Olive Tree"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
