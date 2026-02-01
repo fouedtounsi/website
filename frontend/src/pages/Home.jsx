@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Leaf, Award, Globe, Droplet } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Leaf, Award, Globe, Droplet, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const VIDEO_URL = "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/4597fkxz_Video%202026-01-14%20at%2011.06.14%20AM.mp4";
