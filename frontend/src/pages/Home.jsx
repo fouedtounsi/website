@@ -1,46 +1,70 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Leaf, Award, Globe } from 'lucide-react';
-import { SectionHeader } from '../components/shared/SectionHeader';
+import { ArrowRight, Leaf, Award, Globe, Droplet } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const VIDEO_URL = "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/4597fkxz_Video%202026-01-14%20at%2011.06.14%20AM.mp4";
+
+const OLIVE_TREES = {
+  tree1: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/47m9lec2_Olive%20tree1.jpeg",
+  tree2: "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/1ql9qh7w_Olive%20tree3.jpeg"
+};
 
 const PRODUCT_IMAGES = {
   oliveOil: [
     "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/s0xiozcb_Image%202026-01-14%20at%2011.04.08%20AM%20%281%29.jpeg",
     "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/jbnqgx2x_Image%202026-01-14%20at%2011.04.09%20AM%20%281%29.jpeg",
+    "https://customer-assets.emergentagent.com/job_8a2d9a0f-5241-493d-9731-b77954b88672/artifacts/ovii6g2w_Image%202026-01-14%20at%2011.04.12%20AM%20%281%29.jpeg",
+    "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/xdffe8un_500%20ml.jpg",
   ],
   kitchenware: [
     "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/3w9avqvz_Cutting%20Board%20REF%20P02.jpg",
     "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/hg47jtoq_Flat%20Mortard.jpg",
+    "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6xmzcof6_Classic%20Wine%20Cup%20REF%20T13.jpg",
+    "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/h1ifnun3_Heart%20Dish%20REF%20B08.jpg",
+    "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/depri7sw_Round%20Mortard%20REF%20M01.jpg",
+    "https://customer-assets.emergentagent.com/job_oilwood-fusion/artifacts/6su95ih4_Rustic%20Chess%20Games.jpg",
   ]
 };
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const features = [
     {
-      icon: <Leaf className="w-6 h-6" />,
-      title: t('home.feature1Title'),
-      description: t('home.feature1Desc')
+      icon: <Leaf className="w-8 h-8" />,
+      title: language === 'fr' ? '100% Biologique' : '100% Biological',
+      description: language === 'fr' 
+        ? 'Culture biologique certifiée sans pesticides' 
+        : 'Certified organic cultivation with no pesticides'
     },
     {
-      icon: <Award className="w-6 h-6" />,
-      title: t('home.feature2Title'),
-      description: t('home.feature2Desc')
+      icon: <Droplet className="w-8 h-8" />,
+      title: language === 'fr' ? 'Première Pression à Froid' : 'First Cold Pressing',
+      description: language === 'fr'
+        ? 'Extraite à moins de 27°C pour préserver les nutriments'
+        : 'Extracted below 27°C to preserve nutrients'
     },
     {
-      icon: <Globe className="w-6 h-6" />,
-      title: t('home.feature3Title'),
-      description: t('home.feature3Desc')
+      icon: <Award className="w-8 h-8" />,
+      title: language === 'fr' ? 'Qualité Supérieure' : 'Superior Quality',
+      description: language === 'fr'
+        ? 'Des meilleures oliveraies de Tunisie'
+        : 'From the finest olive groves of Tunisia'
+    },
+    {
+      icon: <Globe className="w-8 h-8" />,
+      title: language === 'fr' ? 'Livraison au Canada' : 'Delivery in Canada',
+      description: language === 'fr'
+        ? 'Disponible dans notre entrepôt de Montréal'
+        : 'Available from our Montreal warehouse'
     }
   ];
 
   return (
     <div data-testid="home-page" className="min-h-screen">
-      {/* Hero Section with Video */}
+      
+      {/* ==================== LANDING SECTION ==================== */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0">
@@ -53,8 +77,7 @@ export default function Home() {
           >
             <source src={VIDEO_URL} type="video/mp4" />
           </video>
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-surface-primary" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-surface-primary" />
         </div>
 
         {/* Hero Content */}
@@ -65,13 +88,15 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
           >
             <span className="font-cormorant italic text-brand-gold text-xl md:text-2xl mb-4 block">
-              {t('home.heroAccent')}
+              {language === 'fr' ? 'Qualité Supérieure' : 'Superior Quality'}
             </span>
             <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-text-primary mb-6 leading-tight">
-              {t('home.heroTitle')}
+              Tunisia Olive Oil
             </h1>
             <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10">
-              {t('home.heroSubtitle')}
+              {language === 'fr' 
+                ? 'Huile d\'olive extra vierge biologique et articles en bois d\'olivier artisanaux de Tunisie'
+                : 'Premium biological extra virgin olive oil & handcrafted olive wood products from Tunisia'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -79,7 +104,7 @@ export default function Home() {
                 data-testid="hero-cta-olive-oil"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
-                {t('home.exploreOil')}
+                {language === 'fr' ? 'Découvrir l\'Huile' : 'Explore Olive Oil'}
                 <ArrowRight size={16} />
               </Link>
               <Link
@@ -87,7 +112,7 @@ export default function Home() {
                 data-testid="hero-cta-kitchenware"
                 className="btn-secondary inline-flex items-center justify-center gap-2"
               >
-                {t('home.viewKitchenware')}
+                {language === 'fr' ? 'Articles Bois d\'Olivier' : 'Olive Wood Products'}
                 <ArrowRight size={16} />
               </Link>
             </div>
@@ -105,21 +130,120 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Features Section */}
+      {/* ==================== ABOUT / STORY SECTION ==================== */}
       <section className="py-24 md:py-32 bg-surface-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Images Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              <div className="space-y-4">
+                <div className="overflow-hidden">
+                  <img 
+                    src={OLIVE_TREES.tree1} 
+                    alt="Olive Tree" 
+                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="overflow-hidden">
+                  <img 
+                    src={PRODUCT_IMAGES.oliveOil[0]} 
+                    alt="Olive Oil" 
+                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="overflow-hidden">
+                  <img 
+                    src={OLIVE_TREES.tree2} 
+                    alt="Ancient Olive Tree" 
+                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="overflow-hidden">
+                  <img 
+                    src={PRODUCT_IMAGES.kitchenware[0]} 
+                    alt="Olive Wood" 
+                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+                {language === 'fr' ? 'Notre Histoire' : 'Our Story'}
+              </span>
+              <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
+                {language === 'fr' ? 'De la Tunisie au Canada' : 'From Tunisia to Canada'}
+              </h2>
+              <div className="gold-line mb-6" />
+              <p className="text-text-secondary text-lg leading-relaxed mb-6">
+                {language === 'fr' 
+                  ? 'La Tunisie cultive des olives depuis plus de 3 000 ans. Nous importons la meilleure huile d\'olive extra vierge directement de Tunisie vers notre entrepôt à Montréal.'
+                  : 'Tunisia has been cultivating olives for over 3,000 years. We import the finest extra virgin olive oil directly from Tunisia to our warehouse in Montreal.'}
+              </p>
+              <p className="text-text-secondary text-lg leading-relaxed mb-8">
+                {language === 'fr'
+                  ? 'Nos articles en bois d\'olivier sont fabriqués par des artisans qualifiés qui transforment le bois récupéré de vieux oliviers en belles pièces fonctionnelles.'
+                  : 'Our olive wood products are crafted by skilled artisans who transform reclaimed wood from old olive trees into beautiful, functional pieces.'}
+              </p>
+              <Link
+                to="/about"
+                className="btn-ghost inline-flex items-center gap-2"
+              >
+                {language === 'fr' ? 'En Savoir Plus' : 'Learn More'}
+                <ArrowRight size={14} />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FEATURES SECTION ==================== */}
+      <section className="py-24 md:py-32 bg-surface-secondary">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+              {language === 'fr' ? 'Pourquoi Nous Choisir' : 'Why Choose Us'}
+            </span>
+            <h2 className="font-playfair text-4xl md:text-5xl text-text-primary">
+              {language === 'fr' ? 'L\'Excellence Tunisienne' : 'Tunisian Excellence'}
+            </h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="feature-card"
+                className="text-center group"
               >
-                <div className="text-brand-gold mb-4">{feature.icon}</div>
-                <h3 className="font-playfair text-xl text-text-primary mb-2">{feature.title}</h3>
+                <div className="inline-flex items-center justify-center w-20 h-20 border border-brand-gold/30 text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-black transition-all duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="font-playfair text-xl text-text-primary mb-3">{feature.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
@@ -127,120 +251,90 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bento Grid Products Preview */}
-      <section className="py-24 md:py-32 bg-surface-secondary">
+      {/* ==================== PRODUCTS SECTION ==================== */}
+      <section className="py-24 md:py-32 bg-surface-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionHeader
-            accent={t('home.collectionsAccent')}
-            title={t('home.collectionsTitle')}
-            subtitle={t('home.collectionsSubtitle')}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+              {language === 'fr' ? 'Nos Produits' : 'Our Products'}
+            </span>
+            <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-4">
+              {language === 'fr' ? 'Deux Collections, Une Excellence' : 'Two Collections, One Excellence'}
+            </h2>
+            <div className="gold-line mx-auto" />
+          </motion.div>
 
-          {/* Bento Grid */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Large Olive Oil Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Olive Oil Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="md:col-span-8 relative group overflow-hidden"
+              className="group relative overflow-hidden"
             >
-              <Link to="/olive-oil" data-testid="bento-olive-oil" className="block">
-                <div className="aspect-[16/10] overflow-hidden">
+              <Link to="/olive-oil" data-testid="product-olive-oil" className="block">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={PRODUCT_IMAGES.oliveOil[0]}
-                    alt="Tunisia Olive Oil"
+                    src={PRODUCT_IMAGES.oliveOil[1]}
+                    alt="Extra Virgin Olive Oil"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
                   <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <span className="text-brand-gold font-cormorant italic text-lg">{t('home.extraVirgin')}</span>
-                    <h3 className="font-playfair text-3xl md:text-4xl text-text-primary mt-2">{t('home.extraVirgin')}</h3>
-                    <p className="text-text-secondary mt-2 max-w-md">250ml, 500ml, 750ml, 1L, 3L & 5L</p>
+                    <span className="text-brand-gold font-cormorant italic text-lg">
+                      {language === 'fr' ? 'Huile d\'Olive Extra Vierge' : 'Extra Virgin Olive Oil'}
+                    </span>
+                    <h3 className="font-playfair text-3xl text-text-primary mt-2">
+                      {language === 'fr' ? 'Huile d\'Olive' : 'Olive Oil'}
+                    </h3>
+                    <p className="text-text-secondary mt-2">
+                      250ml • 500ml • 750ml • 1L • 3L • 5L
+                    </p>
                     <span className="inline-flex items-center gap-2 text-brand-gold mt-4 text-sm uppercase tracking-widest group-hover:gap-3 transition-all">
-                      {t('home.exploreCollection')} <ArrowRight size={14} />
+                      {language === 'fr' ? 'Voir la Collection' : 'View Collection'} <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>
               </Link>
             </motion.div>
 
-            {/* Small Cards */}
-            <div className="md:col-span-4 flex flex-col gap-6">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative group overflow-hidden flex-1"
-              >
-                <Link to="/olive-oil" data-testid="bento-olive-oil-secondary" className="block h-full">
-                  <div className="h-full overflow-hidden">
-                    <img
-                      src={PRODUCT_IMAGES.oliveOil[1]}
-                      alt="Olive Oil Bottles"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                    <div>
-                      <span className="text-brand-gold text-xs uppercase tracking-widest">{t('home.multipleFormats')}</span>
-                      <p className="text-text-primary font-playfair text-lg mt-1">250ml - 5L</p>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative group overflow-hidden flex-1"
-              >
-                <Link to="/kitchenware" data-testid="bento-kitchenware" className="block h-full">
-                  <div className="h-full overflow-hidden">
-                    <img
-                      src={PRODUCT_IMAGES.kitchenware[0]}
-                      alt="Olive Wood Kitchenware"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                    <div>
-                      <span className="text-brand-gold text-xs uppercase tracking-widest">{t('home.handcrafted')}</span>
-                      <p className="text-text-primary font-playfair text-lg mt-1">{t('home.oliveWood')}</p>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            </div>
-
-            {/* Full Width Kitchenware Card */}
+            {/* Kitchenware Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="md:col-span-12 relative group overflow-hidden"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group relative overflow-hidden"
             >
-              <Link to="/kitchenware" data-testid="bento-kitchenware-full" className="block">
-                <div className="aspect-[21/9] overflow-hidden">
+              <Link to="/kitchenware" data-testid="product-kitchenware" className="block">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={PRODUCT_IMAGES.kitchenware[1]}
-                    alt="Olive Wood Collection"
+                    alt="Olive Wood Kitchenware"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent">
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 p-8 md:p-12">
-                    <span className="text-brand-gold font-cormorant italic text-lg">{t('kitchenware.heroAccent')}</span>
-                    <h3 className="font-playfair text-3xl md:text-4xl text-text-primary mt-2">{t('home.oliveWoodKitchenware')}</h3>
-                    <p className="text-text-secondary mt-2 max-w-md">{t('kitchenware.heroDesc').substring(0, 80)}...</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <span className="text-brand-gold font-cormorant italic text-lg">
+                      {language === 'fr' ? 'Artisanat Tunisien' : 'Tunisian Craftsmanship'}
+                    </span>
+                    <h3 className="font-playfair text-3xl text-text-primary mt-2">
+                      {language === 'fr' ? 'Articles Bois d\'Olivier' : 'Olive Wood Products'}
+                    </h3>
+                    <p className="text-text-secondary mt-2">
+                      {language === 'fr' ? 'Planches • Mortiers • Coupes • Jeux' : 'Boards • Mortars • Cups • Games'}
+                    </p>
                     <span className="inline-flex items-center gap-2 text-brand-gold mt-4 text-sm uppercase tracking-widest group-hover:gap-3 transition-all">
-                      {t('home.viewCollection')} <ArrowRight size={14} />
+                      {language === 'fr' ? 'Voir la Collection' : 'View Collection'} <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>
@@ -250,7 +344,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ==================== GALLERY SECTION ==================== */}
+      <section className="py-24 md:py-32 bg-surface-secondary">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+              {language === 'fr' ? 'Galerie' : 'Gallery'}
+            </span>
+            <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-4">
+              {language === 'fr' ? 'Notre Collection' : 'Our Collection'}
+            </h2>
+            <div className="gold-line mx-auto" />
+          </motion.div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {/* Olive Trees */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="aspect-square overflow-hidden group col-span-2 row-span-2"
+            >
+              <img
+                src={OLIVE_TREES.tree1}
+                alt="Tunisian Olive Grove"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </motion.div>
+
+            {/* Products */}
+            {[...PRODUCT_IMAGES.oliveOil.slice(0, 2), ...PRODUCT_IMAGES.kitchenware.slice(0, 4)].map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="aspect-square overflow-hidden group"
+              >
+                <img
+                  src={image}
+                  alt={`Product ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </motion.div>
+            ))}
+
+            {/* Second Olive Tree */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="aspect-square overflow-hidden group col-span-2"
+            >
+              <img
+                src={OLIVE_TREES.tree2}
+                alt="Ancient Olive Tree"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== CTA SECTION ==================== */}
       <section className="py-24 md:py-32 bg-surface-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <motion.div
@@ -260,20 +426,22 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
-              {t('home.ctaAccent')}
+              {language === 'fr' ? 'Contactez-Nous' : 'Get in Touch'}
             </span>
             <h2 className="font-playfair text-4xl md:text-5xl text-text-primary mb-6">
-              {t('home.ctaTitle')}
+              {language === 'fr' ? 'Prêt à Commander?' : 'Ready to Order?'}
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-10">
-              {t('home.ctaSubtitle')}
+              {language === 'fr'
+                ? 'Contactez-nous pour des demandes de gros, des opportunités de distribution ou pour trouver un détaillant près de chez vous.'
+                : 'Contact us for wholesale inquiries, distribution opportunities, or to find a retailer near you.'}
             </p>
             <Link
               to="/contact"
               data-testid="cta-contact"
               className="btn-primary inline-flex items-center gap-2"
             >
-              {t('home.getInTouch')}
+              {language === 'fr' ? 'Contactez-Nous' : 'Contact Us'}
               <ArrowRight size={16} />
             </Link>
           </motion.div>
