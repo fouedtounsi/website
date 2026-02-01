@@ -1,85 +1,83 @@
-# Huile de Sfax - Product Showcase Website PRD
+# Tunisia Olive Oil & Olive Wood Products - Website PRD
 
 ## Project Overview
-Premium product showcase/catalog website for IJL International featuring:
-- **Huile de Sfax** Extra Virgin Olive Oil (biological, cold-pressed)
-- **Olive Wood Kitchenware** (handcrafted Tunisian artisan products)
+Product showcase/catalog website for IJL International featuring:
+- **Tunisia Olive Oil** - Extra Virgin Olive Oil (biological, cold-pressed)
+- **Olive Wood Products** - Handcrafted Tunisian artisan kitchenware
 
 ## Brand Identity
 - **Company**: IJL International
-- **Location**: Sfax, Tunisia
+- **Origin**: Tunisia (imported to Canada)
+- **Distribution**: Montreal, Quebec, Canada
 - **Theme**: Dark luxury with gold accents (#D4AF37)
 - **Typography**: Playfair Display (headings), Manrope (body)
 
 ## What's Been Implemented ✅
 
-### Date: January 30, 2026
+### Date: February 1, 2026
 
 **Pages:**
-1. **Homepage** - Video hero, feature highlights, Bento grid product preview
-2. **Olive Oil Page** - 4 product formats (250ml, 750ml, 1L, 5L tin)
-3. **Kitchenware Page** - 4 products (Classic Cup, Cutting Board, Mortar, Heart Dish)
-4. **About Page** - Brand story, values, Tunisia heritage
-5. **Contact Page** - Form with backend integration
-
-**Backend APIs:**
-- `GET /api/` - Welcome endpoint
-- `GET /api/health` - Health check
-- `GET /api/products/olive-oil` - Olive oil products data
-- `GET /api/products/kitchenware` - Kitchenware products data
-- `POST /api/contact` - Contact form submission (stores to MongoDB)
-- `GET /api/contact` - Retrieve contact messages (admin)
+1. **Homepage** - Static olive tree background, story section, features, expandable products, gallery, target audience
+2. **Olive Oil Page** - 6 SKUs (250ml-5L) with zoom lightbox
+3. **Kitchenware Page** - 11 products with zoom lightbox
+4. **About Page** - Brand story with video
+5. **Contact Page** - Form with backend integration (saves to MongoDB)
 
 **Features:**
+- EN/FR language switcher (localStorage persistence)
+- Image zoom lightbox on all products
+- Expandable product sections on homepage
+- Target audience section (Importers/Distributors/Retailers)
+- Mobile responsive design
 - Dark theme with gold accents
-- Responsive design (mobile hamburger menu)
-- Smooth animations with Framer Motion
-- All user-provided product images integrated
-- Bilingual labels (French/English)
-- Contact form with validation and success/error messages
+
+**Products:**
+
+*Olive Oil (6 SKUs):*
+- TOO-250: 250ml Bottle
+- TOO-500: 500ml Bottle
+- TOO-750: 750ml Bottle
+- TOO-1000: 1L Bottle
+- TOO-3000: 3L Jug
+- TOO-5000: 5L Tin
+
+*Olive Wood Products (11 items):*
+- T13: Classic Wine Cup
+- P02: Irregular Cutting Board
+- M03: Flat Mortar
+- B08: Heart Dish
+- M01: Round Mortar
+- J01: Rustic Chess Games
+- K04: Set of 3 Cutting Board
+- B12: Oval Dipping Dish Set
+- S16: Spoon Table Set
+- P06: Rectangular Board
+- P07: Classic Rectangular Board
+
+**Backend APIs:**
+- GET /api/health - Health check
+- GET /api/products/olive-oil - Olive oil products
+- GET /api/products/kitchenware - Kitchenware products
+- POST /api/contact - Contact form submission
+- GET /api/contact - Retrieve messages (admin)
 
 ## Tech Stack
 - **Frontend**: React, Tailwind CSS, Framer Motion
 - **Backend**: FastAPI, MongoDB
 - **Fonts**: Playfair Display, Manrope, Cormorant Garamond
 
-## Core Requirements (Static)
-- Product showcase only (no e-commerce)
-- Display olive oil in 4 formats
-- Display 4 kitchenware items
-- Contact form for inquiries
-- Bilingual content support
-- Premium dark aesthetic
+## Contact Information (To Update)
+- Email: contact@huiledetunisia.com
+- Phone: +1 (514) 000-0000
+- Location: Montreal, Quebec, Canada
 
-## User Personas
-1. **Wholesale Buyers** - Looking for bulk olive oil
-2. **Retailers/Distributors** - Seeking product partnerships
-3. **End Consumers** - Interested in premium Tunisian products
-4. **Gift Buyers** - Looking for unique artisan items
-
-## Prioritized Backlog
-
-### P0 (Completed)
-- ✅ Homepage with hero and product preview
-- ✅ Olive Oil product showcase
-- ✅ Kitchenware product showcase
-- ✅ About page
-- ✅ Contact form functionality
-
-### P1 (Future)
-- Multi-language toggle (EN/FR/AR)
-- Product detail modals/pages
-- WhatsApp integration for quick contact
-- Newsletter subscription
-
-### P2 (Future)
-- Blog/recipes section
-- Certification badges display
-- Testimonials carousel
-- Social media integration
+## Target Audience
+- Importers (North America)
+- Distributors (Canada-wide)
+- Retailers (Fine grocery, gourmet shops, specialty stores)
 
 ## Next Action Items
-1. Update contact email/phone with real values
-2. Add actual business address
-3. Consider adding WhatsApp chat button for quick inquiries
-4. Add social media links in footer
+1. Update real contact information (email, phone, address)
+2. Consider adding admin panel for content management
+3. Add social media links
+4. Consider WhatsApp integration for quick inquiries
