@@ -216,6 +216,17 @@ export default function Kitchenware() {
                     REF: {product.reference}
                   </span>
                 </div>
+
+                {/* Product Info Below Image */}
+                <div className="p-4 bg-surface-secondary">
+                  <h3 className="font-playfair text-lg text-text-primary">{product.name}</h3>
+                  <span className="font-cormorant italic text-brand-gold text-sm">
+                    {language === 'fr' ? product.nameEn : product.nameFr}
+                  </span>
+                  {product.dimensions && (
+                    <p className="text-text-muted text-xs mt-1">DIM: {product.dimensions}</p>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>
