@@ -504,6 +504,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== TARGET AUDIENCE SECTION ==================== */}
+      <section className="py-16 bg-surface-primary border-y border-brand-gold/20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-12">
+            <span className="text-brand-gold font-cormorant italic text-xl mb-4 block">
+              {language === 'fr' ? 'Clientèle Cible' : 'Target Audience'}
+            </span>
+            <h2 className="font-playfair text-3xl md:text-4xl text-text-primary">
+              {language === 'fr' ? 'À Qui S\'Adressent Nos Produits' : 'Who Our Products Are For'}
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Importers */}
+            <div className="text-center p-8 bg-surface-secondary border border-white/5 hover:border-brand-gold/30 transition-colors">
+              <div className="w-16 h-16 mx-auto mb-4 border border-brand-gold/30 flex items-center justify-center">
+                <Globe className="w-8 h-8 text-brand-gold" />
+              </div>
+              <h3 className="font-playfair text-xl text-text-primary mb-2">
+                {language === 'fr' ? 'Importateurs' : 'Importers'}
+              </h3>
+              <p className="text-text-secondary text-sm">
+                {language === 'fr' 
+                  ? 'Partenariats d\'importation pour l\'Amérique du Nord'
+                  : 'Import partnerships for North America'}
+              </p>
+            </div>
+
+            {/* Distributors */}
+            <div className="text-center p-8 bg-surface-secondary border border-white/5 hover:border-brand-gold/30 transition-colors">
+              <div className="w-16 h-16 mx-auto mb-4 border border-brand-gold/30 flex items-center justify-center">
+                <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <h3 className="font-playfair text-xl text-text-primary mb-2">
+                {language === 'fr' ? 'Distributeurs' : 'Distributors'}
+              </h3>
+              <p className="text-text-secondary text-sm">
+                {language === 'fr' 
+                  ? 'Réseau de distribution à travers le Canada'
+                  : 'Distribution network across Canada'}
+              </p>
+            </div>
+
+            {/* Retailers */}
+            <div className="text-center p-8 bg-surface-secondary border border-white/5 hover:border-brand-gold/30 transition-colors">
+              <div className="w-16 h-16 mx-auto mb-4 border border-brand-gold/30 flex items-center justify-center">
+                <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="font-playfair text-xl text-text-primary mb-2">
+                {language === 'fr' ? 'Revendeurs' : 'Retailers'}
+              </h3>
+              <p className="text-text-secondary text-sm">
+                {language === 'fr' 
+                  ? 'Épiceries fines, boutiques gastronomiques et magasins spécialisés'
+                  : 'Fine grocery stores, gourmet shops and specialty stores'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== CTA SECTION ==================== */}
       <section className="py-24 md:py-32 bg-surface-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
