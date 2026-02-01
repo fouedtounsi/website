@@ -31,6 +31,7 @@ const PRODUCT_IMAGES = {
 export default function Home() {
   const { t, language } = useLanguage();
   const [showOilFormats, setShowOilFormats] = useState(false);
+  const [showKitchenware, setShowKitchenware] = useState(false);
 
   const oilFormats = [
     { size: '250ml', sku: 'TOO-250' },
