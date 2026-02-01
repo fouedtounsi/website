@@ -42,6 +42,20 @@ export default function Home() {
     { size: '5L', sku: 'TOO-5000' },
   ];
 
+  const kitchenwareProducts = [
+    { nameEn: 'Classic Wine Cup', nameFr: 'Coupe Classique', ref: 'T13' },
+    { nameEn: 'Irregular Cutting Board', nameFr: 'Planche Irrégulière', ref: 'P02' },
+    { nameEn: 'Flat Mortar', nameFr: 'Mortier Plat', ref: 'M03' },
+    { nameEn: 'Heart Dish', nameFr: 'Plat Cœur', ref: 'B08' },
+    { nameEn: 'Round Mortar', nameFr: 'Mortier Rond', ref: 'M01' },
+    { nameEn: 'Rustic Chess Games', nameFr: 'Jeux d\'Echecs', ref: 'J01' },
+    { nameEn: 'Set of 3 Cutting Board', nameFr: '3 Planches', ref: 'K04' },
+    { nameEn: 'Oval Dipping Dish Set', nameFr: 'Kit Plats Ovale', ref: 'B12' },
+    { nameEn: 'Spoon Table Set', nameFr: 'Couvert Cuillère', ref: 'S16' },
+    { nameEn: 'Rectangular Board', nameFr: 'Planche Rectangulaire', ref: 'P06' },
+    { nameEn: 'Classic Rectangular Board', nameFr: 'Planche Classique', ref: 'P07' },
+  ];
+
   const features = [
     {
       icon: <Leaf className="w-8 h-8" />,
