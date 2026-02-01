@@ -284,9 +284,14 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="group relative overflow-hidden"
+              className="relative overflow-hidden bg-surface-secondary"
             >
-              <Link to="/olive-oil" data-testid="product-olive-oil" className="block">
+              {/* Main Card - Clickable to expand */}
+              <div 
+                onClick={() => setShowOilFormats(!showOilFormats)}
+                className="cursor-pointer group"
+                data-testid="product-olive-oil"
+              >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={PRODUCT_IMAGES.oliveOil[1]}
@@ -294,7 +299,7 @@ export default function Home() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none">
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <span className="text-brand-gold font-cormorant italic text-lg">
                       {language === 'fr' ? 'Huile d\'Olive Extra Vierge' : 'Extra Virgin Olive Oil'}
@@ -303,14 +308,52 @@ export default function Home() {
                       {language === 'fr' ? 'Huile d\'Olive' : 'Olive Oil'}
                     </h3>
                     <p className="text-text-secondary mt-2">
-                      250ml • 500ml • 750ml • 1L • 3L • 5L
+                      {language === 'fr' ? 'Cliquez pour voir les formats' : 'Click to see available formats'}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-brand-gold mt-4 text-sm uppercase tracking-widest group-hover:gap-3 transition-all">
-                      {language === 'fr' ? 'Voir la Collection' : 'View Collection'} <ArrowRight size={14} />
+                    <span className="inline-flex items-center gap-2 text-brand-gold mt-4 text-sm uppercase tracking-widest">
+                      {language === 'fr' ? 'Formats Disponibles' : 'Available Formats'} 
+                      <ChevronDown size={14} className={`transition-transform duration-300 ${showOilFormats ? 'rotate-180' : ''}`} />
                     </span>
                   </div>
                 </div>
-              </Link>
+              </div>
+
+              {/* Expandable Formats Section */}
+              <AnimatePresence>
+                {showOilFormats && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-6 bg-surface-secondary border-t border-brand-gold/20">
+                      <h4 className="font-playfair text-lg text-text-primary mb-4">
+                        {language === 'fr' ? 'Formats Disponibles' : 'Available Formats'}
+                      </h4>
+                      <div className="grid grid-cols-3 gap-3">
+                        {oilFormats.map((format) => (
+                          <div 
+                            key={format.sku}
+                            className="bg-surface-tertiary border border-white/5 p-3 text-center hover:border-brand-gold/30 transition-colors"
+                          >
+                            <span className="text-text-primary font-playfair text-lg block">{format.size}</span>
+                            <span className="text-text-muted text-xs">SKU: {format.sku}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <Link 
+                        to="/olive-oil" 
+                        className="btn-primary inline-flex items-center gap-2 mt-6 w-full justify-center"
+                      >
+                        {language === 'fr' ? 'Voir Tous les Produits' : 'View All Products'}
+                        <ArrowRight size={16} />
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
 
             {/* Kitchenware Card */}
