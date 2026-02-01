@@ -205,29 +205,8 @@ export default function Kitchenware() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Zoom overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center pointer-events-none">
-                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={32} />
-                  </div>
-                </div>
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
-                  <div className="p-6 sm:p-8 w-full">
-                    <span className="font-cormorant italic text-brand-gold text-sm mb-2 block">
-                      {language === 'fr' ? product.nameEn : product.nameFr}
-                    </span>
-                    <h3 className="font-playfair text-2xl text-text-primary mb-2">
-                      {product.name}
-                    </h3>
-                    <div className="gold-line mb-4" />
-                    {product.dimensions && (
-                      <p className="text-text-muted text-xs uppercase tracking-widest mb-2">
-                        DIM: {product.dimensions}
-                      </p>
-                    )}
-                    <p className="text-text-muted text-xs uppercase tracking-widest">
-                      REF: {product.reference}
-                    </p>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center pointer-events-none">
+                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={40} />
                   </div>
                 </div>
 
