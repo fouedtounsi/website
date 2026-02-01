@@ -66,17 +66,13 @@ export default function Home() {
       
       {/* ==================== LANDING SECTION ==================== */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
+        {/* Static Background Image */}
         <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img
+            src={OLIVE_TREES.tree1}
+            alt="Tunisian Olive Grove"
             className="w-full h-full object-cover"
-          >
-            <source src={VIDEO_URL} type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-surface-primary" />
         </div>
 
