@@ -113,7 +113,7 @@ export default function Home() {
               {language === 'fr' ? 'Qualité Supérieure' : 'Superior Quality'}
             </span>
             <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-text-primary mb-6 leading-tight">
-              Tunisia Olive Oil
+              {language === 'fr' ? 'Huile d\'Olive Tunisienne' : 'Tunisia Olive Oil'}
             </h1>
             <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10">
               {language === 'fr' 
