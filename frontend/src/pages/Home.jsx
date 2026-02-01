@@ -30,6 +30,16 @@ const PRODUCT_IMAGES = {
 
 export default function Home() {
   const { t, language } = useLanguage();
+  const [showOilFormats, setShowOilFormats] = useState(false);
+
+  const oilFormats = [
+    { size: '250ml', sku: 'TOO-250' },
+    { size: '500ml', sku: 'TOO-500' },
+    { size: '750ml', sku: 'TOO-750' },
+    { size: '1L', sku: 'TOO-1000' },
+    { size: '3L', sku: 'TOO-3000' },
+    { size: '5L', sku: 'TOO-5000' },
+  ];
 
   const features = [
     {
