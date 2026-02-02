@@ -49,14 +49,14 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: t('contact.email'),
-      value: 'contact@huiledetunisia.com',
-      href: 'mailto:contact@huiledetunisia.com'
+      value: 'info@tunisianolivegold.ca',
+      href: 'mailto:info@tunisianolivegold.ca'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: t('contact.phone'),
-      value: '+1 (514) 000-0000',
-      href: 'tel:+15140000000'
+      value: '(438) 779-9000',
+      href: 'tel:+14387799000'
     },
     {
       icon: <MapPin className="w-6 h-6" />,

@@ -65,21 +65,21 @@ export const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-gold flex-shrink-0" />
                 <a 
-                  href="mailto:contact@huiledetunisia.com"
+                  href="mailto:info@tunisianolivegold.ca"
                   data-testid="footer-email"
                   className="text-text-secondary text-sm hover:text-brand-gold transition-colors duration-300"
                 >
-                  contact@huiledetunisia.com
+                  info@tunisianolivegold.ca
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-brand-gold flex-shrink-0" />
                 <a 
-                  href="tel:+15140000000"
+                  href="tel:+14387799000"
                   data-testid="footer-phone"
                   className="text-text-secondary text-sm hover:text-brand-gold transition-colors duration-300"
                 >
-                  +1 (514) 000-0000
+                  (438) 779-9000
                 </a>
               </li>
             </ul>
